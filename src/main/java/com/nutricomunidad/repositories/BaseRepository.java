@@ -69,8 +69,13 @@ public abstract class BaseRepository<T> {
 
     /** Agrega el id al final de los parámetros (para las sentencias UPDATE ... WHERE id = ?). */
     protected static Object[] conId(Object[] valores, int id) {
+        return conValor(valores, id);
+    }
+
+    /** Agrega un valor al final de los parámetros. */
+    protected static Object[] conValor(Object[] valores, Object valor) {
         Object[] resultado = Arrays.copyOf(valores, valores.length + 1);
-        resultado[valores.length] = id;
+        resultado[valores.length] = valor;
         return resultado;
     }
 

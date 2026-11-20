@@ -6,6 +6,7 @@
 --     (relación 1:N); DONACIONES y RECETAS ya no apuntan a un único detalle.
 --   * ALERGIAS usa llave primaria compuesta (id_preferencias, id_alimento, id_beneficiario).
 --   * contrasena_usuario almacena únicamente el hash BCrypt.
+--   * BENEFICIARIOS, COMERCIOS y ORGANIZACIONES tienen id_usuario (cuenta propietaria).
 -- El script es idempotente: puede ejecutarse varias veces.
 -- =====================================================================
 
@@ -188,6 +189,12 @@ CREATE TABLE IF NOT EXISTS detalle_recetas (
     id_alimento        INTEGER       NOT NULL REFERENCES alimentos (id_alimento),
     id_receta          INTEGER       NOT NULL REFERENCES recetas (id_receta) ON DELETE CASCADE
 );
+
+-- Vínculo de cada cuenta con su beneficiario, comercio u organización (1:1, opcional).
+-- ADD COLUMN IF NOT EXISTS permite aplicar este script también sobre una base ya creada.
+ALTER TABLE beneficiarios  ADD COLUMN IF NOT EXISTS id_usuario INTEGER UNIQUE REFERENCES usuarios (id_usuario) ON DELETE SET NULL;
+ALTER TABLE comercios      ADD COLUMN IF NOT EXISTS id_usuario INTEGER UNIQUE REFERENCES usuarios (id_usuario) ON DELETE SET NULL;
+ALTER TABLE organizaciones ADD COLUMN IF NOT EXISTS id_usuario INTEGER UNIQUE REFERENCES usuarios (id_usuario) ON DELETE SET NULL;
 
 -- Índices para las llaves foráneas más consultadas
 CREATE INDEX IF NOT EXISTS idx_usuarios_rol             ON usuarios (id_rol);

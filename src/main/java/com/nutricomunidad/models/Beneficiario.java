@@ -14,5 +14,6 @@ public record Beneficiario(
         String colonia,
         String codigoPostal,
         String municipio,
-        String estadoBeneficiario) {
+        String estadoBeneficiario,
+        Integer idUsuario) {
 }

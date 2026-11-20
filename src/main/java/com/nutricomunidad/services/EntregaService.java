@@ -21,9 +21,22 @@ public class EntregaService {
     }
 
     public List<Entrega> listar(String estado, Integer idSolicitud) {
+        return listar(estado, idSolicitud, null, null);
+    }
+
+    /** idBeneficiario / idOrganizacion filtran por la solicitud asociada a cada entrega. */
+    public List<Entrega> listar(String estado, Integer idSolicitud, Integer idBeneficiario, Integer idOrganizacion) {
         return entregas.listar(new Filtro()
                 .igualSinMayusculas("estado", estado)
-                .igual("id_solicitud", idSolicitud));
+                .igual("id_solicitud", idSolicitud)
+                .condicion("""
+                        EXISTS (SELECT 1 FROM solicitudes s
+                                WHERE s.id_solicitud = entregas.id_solicitud AND s.id_beneficiario = ?)
+                        """, idBeneficiario)
+                .condicion("""
+                        EXISTS (SELECT 1 FROM solicitudes s
+                                WHERE s.id_solicitud = entregas.id_solicitud AND s.id_organizacion = ?)
+                        """, idOrganizacion));
     }
 
     public Entrega obtener(int id) {

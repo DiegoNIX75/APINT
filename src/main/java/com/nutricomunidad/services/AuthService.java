@@ -10,12 +10,16 @@ import com.nutricomunidad.dto.UsuarioResponse;
 import com.nutricomunidad.errors.Errores;
 import com.nutricomunidad.models.Rol;
 import com.nutricomunidad.models.Usuario;
+import com.nutricomunidad.repositories.BeneficiarioRepository;
+import com.nutricomunidad.repositories.ComercioRepository;
+import com.nutricomunidad.repositories.OrganizacionRepository;
 import com.nutricomunidad.repositories.RolRepository;
 import com.nutricomunidad.repositories.UsuarioRepository;
 import com.nutricomunidad.security.JwtService;
 import com.nutricomunidad.security.Roles;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AuthService {
@@ -26,17 +30,27 @@ public class AuthService {
     private final RolRepository roles;
     private final JwtService jwt;
     private final BCryptPasswordEncoder encoder;
+    private final BeneficiarioRepository beneficiarios;
+    private final ComercioRepository comercios;
+    private final OrganizacionRepository organizaciones;
     /** Hash ficticio para que el tiempo de respuesta no revele si un correo existe. */
     private final String hashFicticio;
 
-    public AuthService(UsuarioRepository usuarios, RolRepository roles, JwtService jwt, BCryptPasswordEncoder encoder) {
+    public AuthService(UsuarioRepository usuarios, RolRepository roles, JwtService jwt, BCryptPasswordEncoder encoder,
+                       BeneficiarioRepository beneficiarios, ComercioRepository comercios,
+                       OrganizacionRepository organizaciones) {
         this.usuarios = usuarios;
         this.roles = roles;
         this.jwt = jwt;
         this.encoder = encoder;
+        this.beneficiarios = beneficiarios;
+        this.comercios = comercios;
+        this.organizaciones = organizaciones;
         this.hashFicticio = encoder.encode("hash-ficticio-para-tiempo-constante");
     }
 
+    /** Crea la cuenta y, si se envían, los datos de su beneficiario/comercio/organización (todo o nada). */
+    @Transactional
     public UsuarioResponse registrar(RegistroRequest request) {
         String rolPedido = Textos.oPorDefecto(request.rol(), Roles.POR_DEFECTO);
         if (Roles.ADMIN.equalsIgnoreCase(rolPedido)) {
@@ -49,6 +63,8 @@ public class AuthService {
         Rol rol = roles.buscarPorNombre(nombreRol)
                 .orElseThrow(() -> Errores.peticionInvalida("El rol " + nombreRol + " no está configurado en la base de datos"));
 
+        validarDatosDelRol(request, nombreRol);
+
         String correo = Textos.correo(request.correoUsuario());
         if (usuarios.existeCorreo(correo, null)) {
             throw Errores.conflicto("Ya existe una cuenta con ese correo");
@@ -57,7 +73,23 @@ public class AuthService {
         int id = usuarios.crear(request.nombreUsuario().trim(), request.apUsuario().trim(),
                 Textos.limpiar(request.amUsuario()), correo, encoder.encode(request.contrasena()),
                 Textos.limpiar(request.telefonoUsuario()), rol.idRol());
+        if (request.beneficiario() != null) {
+            beneficiarios.crear(request.beneficiario(), id);
+        } else if (request.comercio() != null) {
+            comercios.crear(request.comercio(), id);
+        } else if (request.organizacion() != null) {
+            organizaciones.crear(request.organizacion(), id);
+        }
         return yo(id);
+    }
+
+    /** Sólo se aceptan los datos de la entidad que corresponde al rol elegido. */
+    private static void validarDatosDelRol(RegistroRequest r, String rol) {
+        if (r.beneficiario() != null && !Roles.BENEFICIARIO.equals(rol)
+                || r.comercio() != null && !Roles.COMERCIO.equals(rol)
+                || r.organizacion() != null && !Roles.ORGANIZACION.equals(rol)) {
+            throw Errores.peticionInvalida("Los datos enviados no corresponden al rol " + rol);
+        }
     }
 
     public LoginResponse login(LoginRequest request) {

@@ -28,8 +28,8 @@ public class OrganizacionService {
         return organizaciones.buscarPorId(id).orElseThrow(() -> Errores.noEncontrado("Organización", id));
     }
 
-    public Organizacion crear(OrganizacionRequest r) {
-        return obtener(organizaciones.crear(r));
+    public Organizacion crear(OrganizacionRequest r, Integer idUsuario) {
+        return obtener(organizaciones.crear(r, idUsuario));
     }
 
     public Organizacion actualizar(int id, OrganizacionRequest r) {

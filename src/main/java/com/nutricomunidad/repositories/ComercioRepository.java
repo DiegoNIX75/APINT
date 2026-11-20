@@ -4,6 +4,7 @@ import static com.nutricomunidad.dto.Textos.limpiar;
 
 import com.nutricomunidad.dto.ComercioRequest;
 import com.nutricomunidad.models.Comercio;
+import java.util.Optional;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -24,16 +25,21 @@ public class ComercioRepository extends BaseRepository<Comercio> {
                 rs.getString("colonia_comercio"),
                 rs.getString("codigo_postal_comercio"),
                 rs.getString("municipio_comercio"),
-                rs.getString("estado_comercio")));
+                rs.getString("estado_comercio"),
+                entero(rs, "id_usuario")));
     }
 
-    public int crear(ComercioRequest r) {
+    public int crear(ComercioRequest r, Integer idUsuario) {
         return insertar("""
                 INSERT INTO comercios (nombre_comercio, razon_social, tipo_comercio, telefono_comercio, correo_comercio,
                     calle_comercio, numero_exterior_comercio, numero_interior_comercio, colonia_comercio,
-                    codigo_postal_comercio, municipio_comercio, estado_comercio)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id_comercio
-                """, valores(r));
+                    codigo_postal_comercio, municipio_comercio, estado_comercio, id_usuario)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id_comercio
+                """, conValor(valores(r), idUsuario));
+    }
+
+    public Optional<Comercio> buscarPorUsuario(int idUsuario) {
+        return listar(new Filtro().igual("id_usuario", idUsuario)).stream().findFirst();
     }
 
     public void actualizar(int id, ComercioRequest r) {

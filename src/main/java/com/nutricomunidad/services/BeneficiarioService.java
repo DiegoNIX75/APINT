@@ -27,8 +27,8 @@ public class BeneficiarioService {
         return beneficiarios.buscarPorId(id).orElseThrow(() -> Errores.noEncontrado("Beneficiario", id));
     }
 
-    public Beneficiario crear(BeneficiarioRequest r) {
-        return obtener(beneficiarios.crear(r));
+    public Beneficiario crear(BeneficiarioRequest r, Integer idUsuario) {
+        return obtener(beneficiarios.crear(r, idUsuario));
     }
 
     public Beneficiario actualizar(int id, BeneficiarioRequest r) {

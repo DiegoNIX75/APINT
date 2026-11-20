@@ -28,8 +28,8 @@ public class ComercioService {
         return comercios.buscarPorId(id).orElseThrow(() -> Errores.noEncontrado("Comercio", id));
     }
 
-    public Comercio crear(ComercioRequest r) {
-        return obtener(comercios.crear(r));
+    public Comercio crear(ComercioRequest r, Integer idUsuario) {
+        return obtener(comercios.crear(r, idUsuario));
     }
 
     public Comercio actualizar(int id, ComercioRequest r) {

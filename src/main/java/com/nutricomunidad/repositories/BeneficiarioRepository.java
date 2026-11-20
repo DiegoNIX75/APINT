@@ -4,6 +4,7 @@ import static com.nutricomunidad.dto.Textos.limpiar;
 
 import com.nutricomunidad.dto.BeneficiarioRequest;
 import com.nutricomunidad.models.Beneficiario;
+import java.util.Optional;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -25,15 +26,22 @@ public class BeneficiarioRepository extends BaseRepository<Beneficiario> {
                 rs.getString("colonia"),
                 rs.getString("codigo_postal"),
                 rs.getString("municipio"),
-                rs.getString("estado_beneficiario")));
+                rs.getString("estado_beneficiario"),
+                entero(rs, "id_usuario")));
     }
 
-    public int crear(BeneficiarioRequest r) {
+    /** idUsuario es la cuenta propietaria (null cuando lo registra otra persona, p. ej. una organización). */
+    public int crear(BeneficiarioRequest r, Integer idUsuario) {
         return insertar("""
                 INSERT INTO beneficiarios (nombre_beneficiario, ap, am, telefono, correo, numero_integrantes,
-                    calle, numero_exterior, numero_interior, colonia, codigo_postal, municipio, estado_beneficiario)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id_beneficiario
-                """, valores(r));
+                    calle, numero_exterior, numero_interior, colonia, codigo_postal, municipio, estado_beneficiario,
+                    id_usuario)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id_beneficiario
+                """, conValor(valores(r), idUsuario));
+    }
+
+    public Optional<Beneficiario> buscarPorUsuario(int idUsuario) {
+        return listar(new Filtro().igual("id_usuario", idUsuario)).stream().findFirst();
     }
 
     public void actualizar(int id, BeneficiarioRequest r) {
