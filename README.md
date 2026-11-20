@@ -55,7 +55,7 @@ Levanta la API con un PostgreSQL temporal (los datos se borran al detenerla) y a
 ./gradlew test
 ```
 
-35 pruebas: JWT, `AuthService` (Mockito), validaciones de DTO, construcción segura de SQL e integración completa contra PostgreSQL embebido (autenticación, roles, errores, transacciones).
+38 pruebas: JWT, `AuthService` (Mockito), validaciones de DTO, construcción segura de SQL e integración completa contra PostgreSQL embebido (autenticación, roles, errores, transacciones).
 
 ## Estructura
 
@@ -77,6 +77,7 @@ postman/           Colección y entorno de Postman
 - Contraseñas con BCrypt; nunca se devuelven ni la contraseña ni el hash.
 - `Authorization: Bearer <token>` en todo `/api/**` excepto `/api/auth/login`, `/api/auth/registro` y `/api/health/**`.
 - Roles: **Administrador**, **Beneficiario**, **Comercio**, **Organizacion**. El registro público permite los tres últimos (por defecto Beneficiario). El Administrador inicial se crea con `ADMIN_CORREO`/`ADMIN_PASSWORD`.
+- **Acceso por propietario:** cada cuenta Beneficiario/Comercio/Organización puede tener vinculado (columna `id_usuario`) su beneficiario, comercio u organización. Esas cuentas sólo ven y modifican lo suyo: un Beneficiario sus solicitudes, entregas y preferencias; un Comercio las donaciones con productos de su comercio; una Organización las solicitudes dirigidas a ella, sus entregas e inventarios. Si lo intentan con datos ajenos reciben 403.
 - Todas las consultas usan parámetros (`?`); los filtros de búsqueda sólo concatenan nombres de columna fijos.
 
 ### Matriz de permisos
@@ -115,7 +116,7 @@ Los listados aceptan filtros opcionales por query string. `{id}` es numérico.
 | Método | Ruta | Cuerpo | Respuesta |
 |---|---|---|---|
 | GET | `/api/health` · `/api/health/db` | – | 200 `Mensaje` (503 si la BD no responde) |
-| POST | `/api/auth/registro` | `RegistroRequest` (`nombreUsuario`, `apUsuario`, `amUsuario`, `correoUsuario`, `contrasena`, `telefonoUsuario`, `rol`) | 201 `UsuarioResponse` |
+| POST | `/api/auth/registro` | `RegistroRequest` (`nombreUsuario`, `apUsuario`, `amUsuario`, `correoUsuario`, `contrasena`, `telefonoUsuario`, `rol`) y, opcionalmente, el objeto del rol: `beneficiario` (`BeneficiarioRequest`), `comercio` (`ComercioRequest`) u `organizacion` (`OrganizacionRequest`). Cuenta y entidad se guardan en una transacción y quedan vinculadas | 201 `UsuarioResponse` |
 | POST | `/api/auth/login` | `LoginRequest` (`correo`, `contrasena`) | 200 `{token, tipo, expiraEnHoras, usuario}` |
 | GET | `/api/auth/yo` | – | 200 `UsuarioResponse` |
 | PUT | `/api/auth/yo` | `PerfilRequest` | 200 `UsuarioResponse` |
@@ -147,7 +148,8 @@ Los listados aceptan filtros opcionales por query string. `{id}` es numérico.
 ### Actores
 | Método | Ruta | Cuerpo / filtros |
 |---|---|---|
-| GET · POST | `/api/organizaciones` | `?buscar=&tipo=&municipio=` · `OrganizacionRequest` |
+| GET · PUT | `/api/beneficiarios/mio` · `/api/comercios/mio` · `/api/organizaciones/mio` | Registro vinculado a la cuenta (sólo el rol correspondiente). 404 si la cuenta aún no tiene uno |
+| GET · POST | `/api/organizaciones` | `?buscar=&tipo=&municipio=` · `OrganizacionRequest` (si la crea una cuenta Organización, queda vinculada a ella; una por cuenta) |
 | GET · PUT · DELETE | `/api/organizaciones/{id}` | |
 | GET | `/api/organizaciones/{id}/solicitudes` · `/inventarios` | |
 | GET · POST | `/api/comercios` | `?buscar=&tipo=&municipio=` · `ComercioRequest` |
@@ -185,6 +187,7 @@ Respuestas: 200 (consulta/edición), 201 (creación, devuelve el registro creado
 
 - **DETALLE_DONACION y DETALLE_RECETAS** llevan la llave foránea de su encabezado (`id_donacion`, `id_receta`), de modo que la relación es 1:N. El diccionario la tenía invertida, lo que dejaba a cada donación o receta con un único detalle.
 - `cantidad_total` de la donación se calcula como la suma de sus detalles dentro de la misma transacción.
+- **BENEFICIARIOS, COMERCIOS y ORGANIZACIONES** tienen `id_usuario` (único, opcional, `ON DELETE SET NULL`) para vincular cada registro con la cuenta que lo administra. No estaba en el diccionario; se agregó para que cada usuario acceda sólo a sus datos. `sql/schema.sql` lo agrega también a bases existentes (`ADD COLUMN IF NOT EXISTS`).
 - **ALERGIAS** usa una llave primaria compuesta (preferencia, alimento, beneficiario); la preferencia debe pertenecer al beneficiario.
 - El diccionario no define longitudes, obligatoriedad ni unicidad. Se tomaron como obligatorios las PK/FK y los nombres principales, y como únicos el correo de usuario y los nombres de rol y categoría.
 - `fecha_actualizacion` del inventario la asigna el servidor (también al modificar sus lotes). Lotes: `cantidadActual ≤ cantidadInicial` y caducidad/consumo ≥ recepción.
@@ -192,7 +195,6 @@ Respuestas: 200 (consulta/edición), 201 (creación, devuelve el registro creado
 
 ### Pendiente o por definir
 
-- El diccionario no relaciona `usuarios` con `beneficiarios`, `comercios` u `organizaciones`, así que un usuario no puede limitarse a "sus propios" registros: los permisos son por rol. Si se agrega esa relación (p. ej. `id_usuario` en esas tablas), se podrá restringir por propietario.
 - Valores permitidos para estados y prioridades (catálogo cerrado).
 - Revisión contra el diseño de Figma (siguiente etapa).
 

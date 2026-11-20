@@ -304,6 +304,113 @@ class ApiIntegrationTest {
                 .andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)));
     }
 
+    // ---------- Vínculo cuenta ↔ entidad y acceso por propietario ----------
+
+    @Test
+    void registroDeBeneficiarioConDatosQuedaVinculadoYSoloVeLoSuyo() throws Exception {
+        String admin = login(ADMIN_CORREO, ADMIN_CONTRASENA);
+        String correo = correoUnico();
+        enviar(post("/api/auth/registro"), null, """
+                {"nombreUsuario":"Ana","apUsuario":"Ruiz","correoUsuario":"%s","contrasena":"%s","rol":"Beneficiario",
+                 "beneficiario":{"nombreBeneficiario":"Ana","ap":"Ruiz","correo":"%s","numeroIntegrantes":3}}"""
+                .formatted(correo, CONTRASENA, correo)).andExpect(status().isCreated());
+        String token = login(correo, CONTRASENA);
+
+        MvcResult mio = enviar(get("/api/beneficiarios/mio"), token, null)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.numeroIntegrantes").value(3))
+                .andExpect(jsonPath("$.idUsuario").isNumber())
+                .andReturn();
+        int propio = idDe(mio, "$.idBeneficiario");
+        enviar(get("/api/beneficiarios"), token, null).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)));
+        enviar(put("/api/beneficiarios/mio"), token, """
+                {"nombreBeneficiario":"Ana","ap":"Ruiz","numeroIntegrantes":4}""")
+                .andExpect(status().isOk()).andExpect(jsonPath("$.numeroIntegrantes").value(4));
+
+        int ajeno = idDe(enviar(post("/api/beneficiarios"), admin, """
+                {"nombreBeneficiario":"Otro","ap":"Ajeno","numeroIntegrantes":2}""").andReturn(), "$.idBeneficiario");
+        enviar(get("/api/beneficiarios/" + ajeno), token, null).andExpect(status().isForbidden());
+        enviar(post("/api/beneficiarios"), token, """
+                {"nombreBeneficiario":"Segundo","ap":"Registro","numeroIntegrantes":1}""").andExpect(status().isConflict());
+
+        int organizacion = idDe(enviar(post("/api/organizaciones"), admin, """
+                {"nombreOrganizacion":"Org Vinculo"}""").andReturn(), "$.idOrganizacion");
+        String solicitud = """
+                {"motivo":"Despensa","numeroIntegrantes":4,"prioridad":"Media","idOrganizacion":%d,"idBeneficiario":%d}""";
+        enviar(post("/api/solicitudes"), token, solicitud.formatted(organizacion, propio)).andExpect(status().isCreated());
+        enviar(post("/api/solicitudes"), token, solicitud.formatted(organizacion, ajeno)).andExpect(status().isForbidden());
+        enviar(post("/api/solicitudes"), admin, solicitud.formatted(organizacion, ajeno)).andExpect(status().isCreated());
+        enviar(get("/api/solicitudes"), token, null).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void comercioYOrganizacionSoloOperanSobreLoSuyo() throws Exception {
+        String admin = login(ADMIN_CORREO, ADMIN_CONTRASENA);
+        String correoComercio = correoUnico();
+        enviar(post("/api/auth/registro"), null, """
+                {"nombreUsuario":"Rob","apUsuario":"Sanchez","correoUsuario":"%s","contrasena":"%s","rol":"Comercio",
+                 "comercio":{"nombreComercio":"Tienda Propia"}}""".formatted(correoComercio, CONTRASENA))
+                .andExpect(status().isCreated());
+        String comercioToken = login(correoComercio, CONTRASENA);
+        int propio = idDe(enviar(get("/api/comercios/mio"), comercioToken, null).andExpect(status().isOk()).andReturn(),
+                "$.idComercio");
+        int ajeno = idDe(enviar(post("/api/comercios"), admin, """
+                {"nombreComercio":"Tienda Ajena"}""").andReturn(), "$.idComercio");
+        int alimento = crearAlimento(admin, crearCategoria(admin));
+
+        String donacion = """
+                {"detalles":[{"cantidadDetalleDonacion":3,"idAlimento":%d,"idComercio":%d}]}""";
+        enviar(post("/api/donaciones"), comercioToken, donacion.formatted(alimento, ajeno)).andExpect(status().isForbidden());
+        int propia = idDe(enviar(post("/api/donaciones"), comercioToken, donacion.formatted(alimento, propio))
+                .andExpect(status().isCreated()).andReturn(), "$.idDonacion");
+        int ajena = idDe(enviar(post("/api/donaciones"), admin, donacion.formatted(alimento, ajeno)).andReturn(), "$.idDonacion");
+        enviar(get("/api/donaciones/" + ajena), comercioToken, null).andExpect(status().isForbidden());
+        enviar(get("/api/donaciones"), comercioToken, null).andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1))).andExpect(jsonPath("$[0].idDonacion").value(propia));
+        enviar(put("/api/comercios/" + ajeno), comercioToken, """
+                {"nombreComercio":"Intento"}""").andExpect(status().isForbidden());
+
+        String correoOrg = correoUnico();
+        enviar(post("/api/auth/registro"), null, """
+                {"nombreUsuario":"Laura","apUsuario":"Mendez","correoUsuario":"%s","contrasena":"%s","rol":"Organizacion",
+                 "organizacion":{"nombreOrganizacion":"Banco Propio","estadoOrganizacion":"Querétaro"}}"""
+                .formatted(correoOrg, CONTRASENA)).andExpect(status().isCreated());
+        String orgToken = login(correoOrg, CONTRASENA);
+        int orgPropia = idDe(enviar(get("/api/organizaciones/mio"), orgToken, null).andReturn(), "$.idOrganizacion");
+        int orgAjena = idDe(enviar(post("/api/organizaciones"), admin, """
+                {"nombreOrganizacion":"Banco Ajeno"}""").andReturn(), "$.idOrganizacion");
+        int beneficiario = idDe(enviar(post("/api/beneficiarios"), admin, """
+                {"nombreBeneficiario":"Fam","ap":"Prueba","numeroIntegrantes":2}""").andReturn(), "$.idBeneficiario");
+        String solicitud = """
+                {"motivo":"Apoyo","idOrganizacion":%d,"idBeneficiario":%d}""";
+        int deOtra = idDe(enviar(post("/api/solicitudes"), admin, solicitud.formatted(orgAjena, beneficiario)).andReturn(),
+                "$.idSolicitud");
+        enviar(post("/api/solicitudes"), admin, solicitud.formatted(orgPropia, beneficiario)).andExpect(status().isCreated());
+
+        enviar(get("/api/solicitudes"), orgToken, null).andExpect(status().isOk()).andExpect(jsonPath("$", hasSize(1)));
+        enviar(patch("/api/solicitudes/" + deOtra + "/estado"), orgToken, """
+                {"estado":"Aprobada"}""").andExpect(status().isForbidden());
+        enviar(post("/api/inventarios"), orgToken, """
+                {"cantidadDisponible":3,"idDonacion":%d,"idOrganizacion":%d}""".formatted(propia, orgAjena))
+                .andExpect(status().isForbidden());
+        enviar(post("/api/inventarios"), orgToken, """
+                {"cantidadDisponible":3,"idDonacion":%d,"idOrganizacion":%d}""".formatted(propia, orgPropia))
+                .andExpect(status().isCreated());
+    }
+
+    @Test
+    void registroRechazaDatosDeOtroRol() throws Exception {
+        enviar(post("/api/auth/registro"), null, """
+                {"nombreUsuario":"X","apUsuario":"Y","correoUsuario":"%s","contrasena":"%s","rol":"Beneficiario",
+                 "comercio":{"nombreComercio":"No corresponde"}}""".formatted(correoUnico(), CONTRASENA))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.mensaje").value(containsString("no corresponden al rol")));
+        enviar(post("/api/auth/registro"), null, """
+                {"nombreUsuario":"X","apUsuario":"Y","correoUsuario":"%s","contrasena":"%s","rol":"Beneficiario",
+                 "beneficiario":{"nombreBeneficiario":"X","ap":"Y","numeroIntegrantes":0}}""".formatted(correoUnico(), CONTRASENA))
+                .andExpect(status().isBadRequest());
+    }
+
     // ---------- Utilidades ----------
 
     private ResultActions enviar(MockHttpServletRequestBuilder peticion, String token, String json) throws Exception {

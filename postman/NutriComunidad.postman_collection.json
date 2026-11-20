@@ -200,10 +200,10 @@
                 "registro"
               ]
             },
-            "description": "Registro público con rol Beneficiario. Roles permitidos: Beneficiario, Comercio, Organizacion.",
+            "description": "Registro público con rol Beneficiario y los datos de su beneficiario; ambos se guardan en una transacción y quedan vinculados. Roles permitidos: Beneficiario, Comercio, Organizacion.",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoBeneficiario}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Beneficiario\"\n}",
+              "raw": "{\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoBeneficiario}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Beneficiario\",\n  \"beneficiario\": {\n    \"nombreBeneficiario\": \"Usuario Beneficiario\",\n    \"ap\": \"Prueba\",\n    \"am\": \"Demo\",\n    \"telefono\": \"4421234567\",\n    \"correo\": \"{{correoBeneficiario}}\",\n    \"numeroIntegrantes\": 4,\n    \"calle\": \"Av. Hidalgo\",\n    \"numeroExterior\": \"12\",\n    \"colonia\": \"Centro\",\n    \"codigoPostal\": \"76000\",\n    \"municipio\": \"Querétaro\",\n    \"estadoBeneficiario\": \"Querétaro\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -236,10 +236,10 @@
                     "registro"
                   ]
                 },
-                "description": "Registro público con rol Beneficiario. Roles permitidos: Beneficiario, Comercio, Organizacion.",
+                "description": "Registro público con rol Beneficiario y los datos de su beneficiario; ambos se guardan en una transacción y quedan vinculados. Roles permitidos: Beneficiario, Comercio, Organizacion.",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoBeneficiario}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Beneficiario\"\n}",
+                  "raw": "{\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoBeneficiario}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Beneficiario\",\n  \"beneficiario\": {\n    \"nombreBeneficiario\": \"Usuario Beneficiario\",\n    \"ap\": \"Prueba\",\n    \"am\": \"Demo\",\n    \"telefono\": \"4421234567\",\n    \"correo\": \"{{correoBeneficiario}}\",\n    \"numeroIntegrantes\": 4,\n    \"calle\": \"Av. Hidalgo\",\n    \"numeroExterior\": \"12\",\n    \"colonia\": \"Centro\",\n    \"codigoPostal\": \"76000\",\n    \"municipio\": \"Querétaro\",\n    \"estadoBeneficiario\": \"Querétaro\"\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -259,7 +259,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 2,\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"beneficiario.1795150040089@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 2,\n  \"nombreRol\": \"Beneficiario\"\n}"
+              "body": "{\n  \"idUsuario\": 2,\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"beneficiario.1795214944934@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 2,\n  \"nombreRol\": \"Beneficiario\"\n}"
             }
           ]
         },
@@ -306,10 +306,10 @@
                 "registro"
               ]
             },
-            "description": "Registro público con rol Comercio. Roles permitidos: Beneficiario, Comercio, Organizacion.",
+            "description": "Registro público con rol Comercio y los datos de su comercio; ambos se guardan en una transacción y quedan vinculados. Roles permitidos: Beneficiario, Comercio, Organizacion.",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nombreUsuario\": \"Usuario Comercio\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoComercio}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Comercio\"\n}",
+              "raw": "{\n  \"nombreUsuario\": \"Usuario Comercio\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoComercio}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Comercio\",\n  \"comercio\": {\n    \"nombreComercio\": \"Comercio de Prueba\",\n    \"razonSocial\": \"Comercio de Prueba S.A.\",\n    \"tipoComercio\": \"Abarrotes\",\n    \"telefonoComercio\": \"4421234567\",\n    \"correoComercio\": \"{{correoComercio}}\",\n    \"coloniaComercio\": \"Centro\",\n    \"codigoPostalComercio\": \"76000\",\n    \"municipioComercio\": \"Querétaro\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -342,10 +342,10 @@
                     "registro"
                   ]
                 },
-                "description": "Registro público con rol Comercio. Roles permitidos: Beneficiario, Comercio, Organizacion.",
+                "description": "Registro público con rol Comercio y los datos de su comercio; ambos se guardan en una transacción y quedan vinculados. Roles permitidos: Beneficiario, Comercio, Organizacion.",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"nombreUsuario\": \"Usuario Comercio\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoComercio}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Comercio\"\n}",
+                  "raw": "{\n  \"nombreUsuario\": \"Usuario Comercio\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoComercio}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Comercio\",\n  \"comercio\": {\n    \"nombreComercio\": \"Comercio de Prueba\",\n    \"razonSocial\": \"Comercio de Prueba S.A.\",\n    \"tipoComercio\": \"Abarrotes\",\n    \"telefonoComercio\": \"4421234567\",\n    \"correoComercio\": \"{{correoComercio}}\",\n    \"coloniaComercio\": \"Centro\",\n    \"codigoPostalComercio\": \"76000\",\n    \"municipioComercio\": \"Querétaro\"\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -365,7 +365,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 3,\n  \"nombreUsuario\": \"Usuario Comercio\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"comercio.1795150040561@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 3,\n  \"nombreRol\": \"Comercio\"\n}"
+              "body": "{\n  \"idUsuario\": 3,\n  \"nombreUsuario\": \"Usuario Comercio\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"comercio.1795214945445@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 3,\n  \"nombreRol\": \"Comercio\"\n}"
             }
           ]
         },
@@ -412,10 +412,10 @@
                 "registro"
               ]
             },
-            "description": "Registro público con rol Organizacion. Roles permitidos: Beneficiario, Comercio, Organizacion.",
+            "description": "Registro público con rol Organizacion y los datos de su organizacion; ambos se guardan en una transacción y quedan vinculados. Roles permitidos: Beneficiario, Comercio, Organizacion.",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nombreUsuario\": \"Usuario Organizacion\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoOrganizacion}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Organizacion\"\n}",
+              "raw": "{\n  \"nombreUsuario\": \"Usuario Organizacion\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoOrganizacion}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Organizacion\",\n  \"organizacion\": {\n    \"nombreOrganizacion\": \"Organización de Prueba\",\n    \"tipoOrganizacion\": \"Asociación civil\",\n    \"responsableOrganizacion\": \"Usuario Organizacion\",\n    \"telefonoOrganizacion\": \"4421234567\",\n    \"correoOrganizacion\": \"{{correoOrganizacion}}\",\n    \"estadoOrganizacion\": \"Querétaro\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -448,10 +448,10 @@
                     "registro"
                   ]
                 },
-                "description": "Registro público con rol Organizacion. Roles permitidos: Beneficiario, Comercio, Organizacion.",
+                "description": "Registro público con rol Organizacion y los datos de su organizacion; ambos se guardan en una transacción y quedan vinculados. Roles permitidos: Beneficiario, Comercio, Organizacion.",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"nombreUsuario\": \"Usuario Organizacion\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoOrganizacion}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Organizacion\"\n}",
+                  "raw": "{\n  \"nombreUsuario\": \"Usuario Organizacion\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"{{correoOrganizacion}}\",\n  \"contrasena\": \"{{passwordPrueba}}\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"rol\": \"Organizacion\",\n  \"organizacion\": {\n    \"nombreOrganizacion\": \"Organización de Prueba\",\n    \"tipoOrganizacion\": \"Asociación civil\",\n    \"responsableOrganizacion\": \"Usuario Organizacion\",\n    \"telefonoOrganizacion\": \"4421234567\",\n    \"correoOrganizacion\": \"{{correoOrganizacion}}\",\n    \"estadoOrganizacion\": \"Querétaro\"\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -471,7 +471,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 4,\n  \"nombreUsuario\": \"Usuario Organizacion\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"organizacion.1795150040840@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 4,\n  \"nombreRol\": \"Organizacion\"\n}"
+              "body": "{\n  \"idUsuario\": 4,\n  \"nombreUsuario\": \"Usuario Organizacion\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"organizacion.1795214945674@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 4,\n  \"nombreRol\": \"Organizacion\"\n}"
             }
           ]
         },
@@ -950,7 +950,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"token\": \"<jwt>\",\n  \"tipo\": \"Bearer\",\n  \"expiraEnHoras\": 8,\n  \"usuario\": {\n    \"idUsuario\": 2,\n    \"nombreUsuario\": \"Usuario Beneficiario\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"beneficiario.1795150040089@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 2,\n    \"nombreRol\": \"Beneficiario\"\n  }\n}"
+              "body": "{\n  \"token\": \"<jwt>\",\n  \"tipo\": \"Bearer\",\n  \"expiraEnHoras\": 8,\n  \"usuario\": {\n    \"idUsuario\": 2,\n    \"nombreUsuario\": \"Usuario Beneficiario\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"beneficiario.1795214944934@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 2,\n    \"nombreRol\": \"Beneficiario\"\n  }\n}"
             }
           ]
         },
@@ -1049,7 +1049,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"token\": \"<jwt>\",\n  \"tipo\": \"Bearer\",\n  \"expiraEnHoras\": 8,\n  \"usuario\": {\n    \"idUsuario\": 3,\n    \"nombreUsuario\": \"Usuario Comercio\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"comercio.1795150040561@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 3,\n    \"nombreRol\": \"Comercio\"\n  }\n}"
+              "body": "{\n  \"token\": \"<jwt>\",\n  \"tipo\": \"Bearer\",\n  \"expiraEnHoras\": 8,\n  \"usuario\": {\n    \"idUsuario\": 3,\n    \"nombreUsuario\": \"Usuario Comercio\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"comercio.1795214945445@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 3,\n    \"nombreRol\": \"Comercio\"\n  }\n}"
             }
           ]
         },
@@ -1148,7 +1148,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"token\": \"<jwt>\",\n  \"tipo\": \"Bearer\",\n  \"expiraEnHoras\": 8,\n  \"usuario\": {\n    \"idUsuario\": 4,\n    \"nombreUsuario\": \"Usuario Organizacion\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"organizacion.1795150040840@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 4,\n    \"nombreRol\": \"Organizacion\"\n  }\n}"
+              "body": "{\n  \"token\": \"<jwt>\",\n  \"tipo\": \"Bearer\",\n  \"expiraEnHoras\": 8,\n  \"usuario\": {\n    \"idUsuario\": 4,\n    \"nombreUsuario\": \"Usuario Organizacion\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"organizacion.1795214945674@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 4,\n    \"nombreRol\": \"Organizacion\"\n  }\n}"
             }
           ]
         },
@@ -1248,7 +1248,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"token\": \"<jwt>\",\n  \"tipo\": \"Bearer\",\n  \"expiraEnHoras\": 8,\n  \"usuario\": {\n    \"idUsuario\": 1,\n    \"nombreUsuario\": \"Administrador\",\n    \"apUsuario\": \"NutriComunidad\",\n    \"amUsuario\": null,\n    \"correoUsuario\": \"admin@nutricomunidad.test\",\n    \"telefonoUsuario\": null,\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 1,\n    \"nombreRol\": \"Administrador\"\n  }\n}"
+              "body": "{\n  \"token\": \"<jwt>\",\n  \"tipo\": \"Bearer\",\n  \"expiraEnHoras\": 8,\n  \"usuario\": {\n    \"idUsuario\": 1,\n    \"nombreUsuario\": \"Administrador\",\n    \"apUsuario\": \"NutriComunidad\",\n    \"amUsuario\": null,\n    \"correoUsuario\": \"admin@nutricomunidad.test\",\n    \"telefonoUsuario\": null,\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 1,\n    \"nombreRol\": \"Administrador\"\n  }\n}"
             }
           ]
         },
@@ -1309,7 +1309,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 1,\n  \"nombreUsuario\": \"Administrador\",\n  \"apUsuario\": \"NutriComunidad\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"admin@nutricomunidad.test\",\n  \"telefonoUsuario\": null,\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 1,\n  \"nombreRol\": \"Administrador\"\n}"
+              "body": "{\n  \"idUsuario\": 1,\n  \"nombreUsuario\": \"Administrador\",\n  \"apUsuario\": \"NutriComunidad\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"admin@nutricomunidad.test\",\n  \"telefonoUsuario\": null,\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 1,\n  \"nombreRol\": \"Administrador\"\n}"
             }
           ]
         },
@@ -1392,7 +1392,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 2,\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"beneficiario.1795150040089@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 2,\n  \"nombreRol\": \"Beneficiario\"\n}"
+              "body": "{\n  \"idUsuario\": 2,\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"beneficiario.1795214944934@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4421234567\",\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 2,\n  \"nombreRol\": \"Beneficiario\"\n}"
             }
           ]
         },
@@ -1501,7 +1501,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 2,\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Actualizado\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"beneficiario.1795150040089@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4429876543\",\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 2,\n  \"nombreRol\": \"Beneficiario\"\n}"
+              "body": "{\n  \"idUsuario\": 2,\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Actualizado\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"beneficiario.1795214944934@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4429876543\",\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 2,\n  \"nombreRol\": \"Beneficiario\"\n}"
             }
           ]
         },
@@ -1768,6 +1768,669 @@
       "description": "Registro, login y perfil. El login del Administrador guarda su token en {{token}}, que usan por defecto todas las peticiones. Las credenciales del administrador se configuran en el entorno (adminCorreo/adminPassword) y deben coincidir con ADMIN_CORREO/ADMIN_PASSWORD del backend."
     },
     {
+      "name": "01b Mis datos (por rol)",
+      "item": [
+        {
+          "id": "5e491f87-3fb2-54f8-b8f8-f60f24698818",
+          "name": "Mi beneficiario",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);",
+                  "const set=(k,v)=>{pm.collectionVariables.set(k,v);if(pm.environment.name){pm.environment.set(k,v);}};const j=pm.response.json();",
+                  "if(pm.response.code<300){set(\"idBeneficiarioPropio\", j.idBeneficiario);}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/beneficiarios/mio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "beneficiarios",
+                "mio"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenBeneficiario}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/beneficiarios/mio",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "beneficiarios",
+                    "mio"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenBeneficiario}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"idBeneficiario\": 1,\n  \"nombreBeneficiario\": \"Usuario Beneficiario\",\n  \"ap\": \"Prueba\",\n  \"am\": \"Demo\",\n  \"telefono\": \"4421234567\",\n  \"correo\": \"beneficiario.1795214944934@nutricomunidad.test\",\n  \"numeroIntegrantes\": 4,\n  \"calle\": \"Av. Hidalgo\",\n  \"numeroExterior\": \"12\",\n  \"numeroInterior\": null,\n  \"colonia\": \"Centro\",\n  \"codigoPostal\": \"76000\",\n  \"municipio\": \"Querétaro\",\n  \"estadoBeneficiario\": \"Querétaro\",\n  \"idUsuario\": 2\n}"
+            }
+          ]
+        },
+        {
+          "id": "46e5d18f-131b-5c75-b7a2-a7402745fb82",
+          "name": "Actualizar mi beneficiario",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/beneficiarios/mio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "beneficiarios",
+                "mio"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreBeneficiario\": \"Usuario Beneficiario\",\n  \"ap\": \"Prueba\",\n  \"am\": \"Demo\",\n  \"numeroIntegrantes\": 5,\n  \"codigoPostal\": \"76000\",\n  \"municipio\": \"Querétaro\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenBeneficiario}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/beneficiarios/mio",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "beneficiarios",
+                    "mio"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombreBeneficiario\": \"Usuario Beneficiario\",\n  \"ap\": \"Prueba\",\n  \"am\": \"Demo\",\n  \"numeroIntegrantes\": 5,\n  \"codigoPostal\": \"76000\",\n  \"municipio\": \"Querétaro\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenBeneficiario}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"idBeneficiario\": 1,\n  \"nombreBeneficiario\": \"Usuario Beneficiario\",\n  \"ap\": \"Prueba\",\n  \"am\": \"Demo\",\n  \"telefono\": null,\n  \"correo\": null,\n  \"numeroIntegrantes\": 5,\n  \"calle\": null,\n  \"numeroExterior\": null,\n  \"numeroInterior\": null,\n  \"colonia\": null,\n  \"codigoPostal\": \"76000\",\n  \"municipio\": \"Querétaro\",\n  \"estadoBeneficiario\": null,\n  \"idUsuario\": 2\n}"
+            }
+          ]
+        },
+        {
+          "id": "0dde4204-7554-587a-98c5-4d09a186b7ba",
+          "name": "Mi comercio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);",
+                  "const set=(k,v)=>{pm.collectionVariables.set(k,v);if(pm.environment.name){pm.environment.set(k,v);}};const j=pm.response.json();",
+                  "if(pm.response.code<300){set(\"idComercioPropio\", j.idComercio);}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/comercios/mio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "comercios",
+                "mio"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenComercio}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/comercios/mio",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "comercios",
+                    "mio"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenComercio}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"idComercio\": 1,\n  \"nombreComercio\": \"Comercio de Prueba\",\n  \"razonSocial\": \"Comercio de Prueba S.A.\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"telefonoComercio\": \"4421234567\",\n  \"correoComercio\": \"comercio.1795214945445@nutricomunidad.test\",\n  \"calleComercio\": null,\n  \"numeroExteriorComercio\": null,\n  \"numeroInteriorComercio\": null,\n  \"coloniaComercio\": \"Centro\",\n  \"codigoPostalComercio\": \"76000\",\n  \"municipioComercio\": \"Querétaro\",\n  \"estadoComercio\": null,\n  \"idUsuario\": 3\n}"
+            }
+          ]
+        },
+        {
+          "id": "ca20a13b-d5cc-5ba0-be41-736e41de4528",
+          "name": "Actualizar mi comercio",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/comercios/mio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "comercios",
+                "mio"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreComercio\": \"Comercio de Prueba\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"codigoPostalComercio\": \"76000\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenComercio}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/comercios/mio",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "comercios",
+                    "mio"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombreComercio\": \"Comercio de Prueba\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"codigoPostalComercio\": \"76000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenComercio}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"idComercio\": 1,\n  \"nombreComercio\": \"Comercio de Prueba\",\n  \"razonSocial\": null,\n  \"tipoComercio\": \"Abarrotes\",\n  \"telefonoComercio\": null,\n  \"correoComercio\": null,\n  \"calleComercio\": null,\n  \"numeroExteriorComercio\": null,\n  \"numeroInteriorComercio\": null,\n  \"coloniaComercio\": null,\n  \"codigoPostalComercio\": \"76000\",\n  \"municipioComercio\": null,\n  \"estadoComercio\": null,\n  \"idUsuario\": 3\n}"
+            }
+          ]
+        },
+        {
+          "id": "5cc0ddf5-0324-59ed-a43b-d0e0ceb43cbf",
+          "name": "Mi organización",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);",
+                  "const set=(k,v)=>{pm.collectionVariables.set(k,v);if(pm.environment.name){pm.environment.set(k,v);}};const j=pm.response.json();",
+                  "if(pm.response.code<300){set(\"idOrganizacionPropia\", j.idOrganizacion);}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/organizaciones/mio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "organizaciones",
+                "mio"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenOrganizacion}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/organizaciones/mio",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "organizaciones",
+                    "mio"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenOrganizacion}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"idOrganizacion\": 1,\n  \"nombreOrganizacion\": \"Organización de Prueba\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"responsableOrganizacion\": \"Usuario Organizacion\",\n  \"telefonoOrganizacion\": \"4421234567\",\n  \"correoOrganizacion\": \"organizacion.1795214945674@nutricomunidad.test\",\n  \"calleOrganizacion\": null,\n  \"numeroExteriorOrganizacion\": null,\n  \"numeroInteriorOrganizacion\": null,\n  \"coloniaOrganizacion\": null,\n  \"codigoPostalOrganizacion\": null,\n  \"municipioOrganizacion\": null,\n  \"estadoOrganizacion\": \"Querétaro\",\n  \"idUsuario\": 4\n}"
+            }
+          ]
+        },
+        {
+          "id": "492fb5e9-e7f1-5f20-ae5b-be68dd2bf966",
+          "name": "Actualizar mi organización",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/organizaciones/mio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "organizaciones",
+                "mio"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreOrganizacion\": \"Organización de Prueba\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"estadoOrganizacion\": \"Querétaro\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenOrganizacion}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/organizaciones/mio",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "organizaciones",
+                    "mio"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombreOrganizacion\": \"Organización de Prueba\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"estadoOrganizacion\": \"Querétaro\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenOrganizacion}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"idOrganizacion\": 1,\n  \"nombreOrganizacion\": \"Organización de Prueba\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"responsableOrganizacion\": null,\n  \"telefonoOrganizacion\": null,\n  \"correoOrganizacion\": null,\n  \"calleOrganizacion\": null,\n  \"numeroExteriorOrganizacion\": null,\n  \"numeroInteriorOrganizacion\": null,\n  \"coloniaOrganizacion\": null,\n  \"codigoPostalOrganizacion\": null,\n  \"municipioOrganizacion\": null,\n  \"estadoOrganizacion\": \"Querétaro\",\n  \"idUsuario\": 4\n}"
+            }
+          ]
+        },
+        {
+          "id": "89815bd8-6cfd-59b0-8c4e-318ad8acf8ca",
+          "name": "Mi beneficiario con token de comercio (403)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 403\", () => pm.response.to.have.status(403));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/beneficiarios/mio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "beneficiarios",
+                "mio"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenComercio}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/beneficiarios/mio",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "beneficiarios",
+                    "mio"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenComercio}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mensaje\": \"No tienes permiso para realizar esta acción\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "Cada cuenta de Beneficiario, Comercio u Organización consulta y edita el registro vinculado a ella."
+    },
+    {
       "name": "02 Roles",
       "item": [
         {
@@ -1975,7 +2638,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idRol\": 5,\n  \"nombreRol\": \"Voluntario 1795150044\",\n  \"descripcion\": \"Rol de ejemplo\",\n  \"estado\": \"Activo\"\n}"
+              "body": "{\n  \"idRol\": 5,\n  \"nombreRol\": \"Voluntario 1795214949\",\n  \"descripcion\": \"Rol de ejemplo\",\n  \"estado\": \"Activo\"\n}"
             }
           ]
         },
@@ -2064,7 +2727,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idRol\": 5,\n  \"nombreRol\": \"Voluntario editado 1795150044\",\n  \"descripcion\": \"Rol actualizado\",\n  \"estado\": \"Inactivo\"\n}"
+              "body": "{\n  \"idRol\": 5,\n  \"nombreRol\": \"Voluntario editado 1795214949\",\n  \"descripcion\": \"Rol actualizado\",\n  \"estado\": \"Inactivo\"\n}"
             }
           ]
         },
@@ -2245,7 +2908,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idUsuario\": 1,\n    \"nombreUsuario\": \"Administrador\",\n    \"apUsuario\": \"NutriComunidad\",\n    \"amUsuario\": null,\n    \"correoUsuario\": \"admin@nutricomunidad.test\",\n    \"telefonoUsuario\": null,\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 1,\n    \"nombreRol\": \"Administrador\"\n  },\n  {\n    \"idUsuario\": 2,\n    \"nombreUsuario\": \"Usuario Beneficiario\",\n    \"apUsuario\": \"Actualizado\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"beneficiario.1795150040089@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4429876543\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 2,\n    \"nombreRol\": \"Beneficiario\"\n  },\n  {\n    \"idUsuario\": 3,\n    \"nombreUsuario\": \"Usuario Comercio\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"comercio.1795150040561@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 3,\n    \"nombreRol\": \"Comercio\"\n  },\n  {\n    \"idUsuario\": 4,\n    \"nombreUsuario\": \"Usuario Organizacion\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"organizacion.1795150040840@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 4,\n    \"nombreRol\": \"Organizacion\"\n  }\n]"
+              "body": "[\n  {\n    \"idUsuario\": 1,\n    \"nombreUsuario\": \"Administrador\",\n    \"apUsuario\": \"NutriComunidad\",\n    \"amUsuario\": null,\n    \"correoUsuario\": \"admin@nutricomunidad.test\",\n    \"telefonoUsuario\": null,\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 1,\n    \"nombreRol\": \"Administrador\"\n  },\n  {\n    \"idUsuario\": 2,\n    \"nombreUsuario\": \"Usuario Beneficiario\",\n    \"apUsuario\": \"Actualizado\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"beneficiario.1795214944934@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4429876543\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 2,\n    \"nombreRol\": \"Beneficiario\"\n  },\n  {\n    \"idUsuario\": 3,\n    \"nombreUsuario\": \"Usuario Comercio\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"comercio.1795214945445@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 3,\n    \"nombreRol\": \"Comercio\"\n  },\n  {\n    \"idUsuario\": 4,\n    \"nombreUsuario\": \"Usuario Organizacion\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"organizacion.1795214945674@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 4,\n    \"nombreRol\": \"Organizacion\"\n  }\n]"
             }
           ]
         },
@@ -2324,7 +2987,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idUsuario\": 1,\n    \"nombreUsuario\": \"Administrador\",\n    \"apUsuario\": \"NutriComunidad\",\n    \"amUsuario\": null,\n    \"correoUsuario\": \"admin@nutricomunidad.test\",\n    \"telefonoUsuario\": null,\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 1,\n    \"nombreRol\": \"Administrador\"\n  },\n  {\n    \"idUsuario\": 2,\n    \"nombreUsuario\": \"Usuario Beneficiario\",\n    \"apUsuario\": \"Actualizado\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"beneficiario.1795150040089@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4429876543\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 2,\n    \"nombreRol\": \"Beneficiario\"\n  },\n  {\n    \"idUsuario\": 3,\n    \"nombreUsuario\": \"Usuario Comercio\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"comercio.1795150040561@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 3,\n    \"nombreRol\": \"Comercio\"\n  },\n  {\n    \"idUsuario\": 4,\n    \"nombreUsuario\": \"Usuario Organizacion\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"organizacion.1795150040840@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-19\",\n    \"estado\": \"Activo\",\n    \"idRol\": 4,\n    \"nombreRol\": \"Organizacion\"\n  }\n]"
+              "body": "[\n  {\n    \"idUsuario\": 1,\n    \"nombreUsuario\": \"Administrador\",\n    \"apUsuario\": \"NutriComunidad\",\n    \"amUsuario\": null,\n    \"correoUsuario\": \"admin@nutricomunidad.test\",\n    \"telefonoUsuario\": null,\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 1,\n    \"nombreRol\": \"Administrador\"\n  },\n  {\n    \"idUsuario\": 2,\n    \"nombreUsuario\": \"Usuario Beneficiario\",\n    \"apUsuario\": \"Actualizado\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"beneficiario.1795214944934@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4429876543\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 2,\n    \"nombreRol\": \"Beneficiario\"\n  },\n  {\n    \"idUsuario\": 3,\n    \"nombreUsuario\": \"Usuario Comercio\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"comercio.1795214945445@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 3,\n    \"nombreRol\": \"Comercio\"\n  },\n  {\n    \"idUsuario\": 4,\n    \"nombreUsuario\": \"Usuario Organizacion\",\n    \"apUsuario\": \"Prueba\",\n    \"amUsuario\": \"Demo\",\n    \"correoUsuario\": \"organizacion.1795214945674@nutricomunidad.test\",\n    \"telefonoUsuario\": \"4421234567\",\n    \"fechaRegistro\": \"2026-11-20\",\n    \"estado\": \"Activo\",\n    \"idRol\": 4,\n    \"nombreRol\": \"Organizacion\"\n  }\n]"
             }
           ]
         },
@@ -2385,7 +3048,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 2,\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Actualizado\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"beneficiario.1795150040089@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4429876543\",\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 2,\n  \"nombreRol\": \"Beneficiario\"\n}"
+              "body": "{\n  \"idUsuario\": 2,\n  \"nombreUsuario\": \"Usuario Beneficiario\",\n  \"apUsuario\": \"Actualizado\",\n  \"amUsuario\": \"Demo\",\n  \"correoUsuario\": \"beneficiario.1795214944934@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4429876543\",\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 2,\n  \"nombreRol\": \"Beneficiario\"\n}"
             }
           ]
         },
@@ -2474,7 +3137,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 5,\n  \"nombreUsuario\": \"Operador\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"operador.1795150044@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4420001111\",\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 4,\n  \"nombreRol\": \"Organizacion\"\n}"
+              "body": "{\n  \"idUsuario\": 5,\n  \"nombreUsuario\": \"Operador\",\n  \"apUsuario\": \"Prueba\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"operador.1795214950@nutricomunidad.test\",\n  \"telefonoUsuario\": \"4420001111\",\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 4,\n  \"nombreRol\": \"Organizacion\"\n}"
             }
           ]
         },
@@ -2563,7 +3226,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 5,\n  \"nombreUsuario\": \"Operador\",\n  \"apUsuario\": \"Editado\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"operador.editado.1795150044@nutricomunidad.test\",\n  \"telefonoUsuario\": null,\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Activo\",\n  \"idRol\": 4,\n  \"nombreRol\": \"Organizacion\"\n}"
+              "body": "{\n  \"idUsuario\": 5,\n  \"nombreUsuario\": \"Operador\",\n  \"apUsuario\": \"Editado\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"operador.editado.1795214950@nutricomunidad.test\",\n  \"telefonoUsuario\": null,\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Activo\",\n  \"idRol\": 4,\n  \"nombreRol\": \"Organizacion\"\n}"
             }
           ]
         },
@@ -2654,7 +3317,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 5,\n  \"nombreUsuario\": \"Operador\",\n  \"apUsuario\": \"Editado\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"operador.editado.1795150044@nutricomunidad.test\",\n  \"telefonoUsuario\": null,\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Inactivo\",\n  \"idRol\": 4,\n  \"nombreRol\": \"Organizacion\"\n}"
+              "body": "{\n  \"idUsuario\": 5,\n  \"nombreUsuario\": \"Operador\",\n  \"apUsuario\": \"Editado\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"operador.editado.1795214950@nutricomunidad.test\",\n  \"telefonoUsuario\": null,\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Inactivo\",\n  \"idRol\": 4,\n  \"nombreRol\": \"Organizacion\"\n}"
             }
           ]
         },
@@ -2745,7 +3408,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idUsuario\": 5,\n  \"nombreUsuario\": \"Operador\",\n  \"apUsuario\": \"Editado\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"operador.editado.1795150044@nutricomunidad.test\",\n  \"telefonoUsuario\": null,\n  \"fechaRegistro\": \"2026-11-19\",\n  \"estado\": \"Inactivo\",\n  \"idRol\": 3,\n  \"nombreRol\": \"Comercio\"\n}"
+              "body": "{\n  \"idUsuario\": 5,\n  \"nombreUsuario\": \"Operador\",\n  \"apUsuario\": \"Editado\",\n  \"amUsuario\": null,\n  \"correoUsuario\": \"operador.editado.1795214950@nutricomunidad.test\",\n  \"telefonoUsuario\": null,\n  \"fechaRegistro\": \"2026-11-20\",\n  \"estado\": \"Inactivo\",\n  \"idRol\": 3,\n  \"nombreRol\": \"Comercio\"\n}"
             }
           ]
         },
@@ -2956,7 +3619,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos 1795150045\",\n  \"descripcionCategoria\": \"Arroz, frijol, lenteja\",\n  \"estadoCategoria\": \"Activo\"\n}"
+              "body": "{\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos 1795214950\",\n  \"descripcionCategoria\": \"Arroz, frijol, lenteja\",\n  \"estadoCategoria\": \"Activo\"\n}"
             }
           ]
         },
@@ -3027,7 +3690,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idCategoria\": 1,\n    \"nombreCategoria\": \"Granos 1795150045\",\n    \"descripcionCategoria\": \"Arroz, frijol, lenteja\",\n    \"estadoCategoria\": \"Activo\"\n  }\n]"
+              "body": "[\n  {\n    \"idCategoria\": 1,\n    \"nombreCategoria\": \"Granos 1795214950\",\n    \"descripcionCategoria\": \"Arroz, frijol, lenteja\",\n    \"estadoCategoria\": \"Activo\"\n  }\n]"
             }
           ]
         },
@@ -3088,7 +3751,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos 1795150045\",\n  \"descripcionCategoria\": \"Arroz, frijol, lenteja\",\n  \"estadoCategoria\": \"Activo\"\n}"
+              "body": "{\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos 1795214950\",\n  \"descripcionCategoria\": \"Arroz, frijol, lenteja\",\n  \"estadoCategoria\": \"Activo\"\n}"
             }
           ]
         },
@@ -3177,7 +3840,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos y semillas 1795150045\",\n  \"descripcionCategoria\": \"Granos básicos\",\n  \"estadoCategoria\": \"Activo\"\n}"
+              "body": "{\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos y semillas 1795214951\",\n  \"descripcionCategoria\": \"Granos básicos\",\n  \"estadoCategoria\": \"Activo\"\n}"
             }
           ]
         },
@@ -3359,7 +4022,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idAlimento\": 1,\n  \"nombreAlimento\": \"Frijol negro\",\n  \"descripcion\": \"Frijol a granel\",\n  \"unidadMedida\": \"kg\",\n  \"caloriasPorPorcion\": 127.5,\n  \"proteinas\": 8.7,\n  \"carbohidratos\": 22.8,\n  \"grasas\": 0.5,\n  \"estadoAlimento\": \"Activo\",\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos y semillas 1795150045\"\n}"
+              "body": "{\n  \"idAlimento\": 1,\n  \"nombreAlimento\": \"Frijol negro\",\n  \"descripcion\": \"Frijol a granel\",\n  \"unidadMedida\": \"kg\",\n  \"caloriasPorPorcion\": 127.5,\n  \"proteinas\": 8.7,\n  \"carbohidratos\": 22.8,\n  \"grasas\": 0.5,\n  \"estadoAlimento\": \"Activo\",\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos y semillas 1795214951\"\n}"
             }
           ]
         },
@@ -3430,7 +4093,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idAlimento\": 1,\n    \"nombreAlimento\": \"Frijol negro\",\n    \"descripcion\": \"Frijol a granel\",\n    \"unidadMedida\": \"kg\",\n    \"caloriasPorPorcion\": 127.5,\n    \"proteinas\": 8.7,\n    \"carbohidratos\": 22.8,\n    \"grasas\": 0.5,\n    \"estadoAlimento\": \"Activo\",\n    \"idCategoria\": 1,\n    \"nombreCategoria\": \"Granos y semillas 1795150045\"\n  }\n]"
+              "body": "[\n  {\n    \"idAlimento\": 1,\n    \"nombreAlimento\": \"Frijol negro\",\n    \"descripcion\": \"Frijol a granel\",\n    \"unidadMedida\": \"kg\",\n    \"caloriasPorPorcion\": 127.5,\n    \"proteinas\": 8.7,\n    \"carbohidratos\": 22.8,\n    \"grasas\": 0.5,\n    \"estadoAlimento\": \"Activo\",\n    \"idCategoria\": 1,\n    \"nombreCategoria\": \"Granos y semillas 1795214951\"\n  }\n]"
             }
           ]
         },
@@ -3491,7 +4154,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idAlimento\": 1,\n  \"nombreAlimento\": \"Frijol negro\",\n  \"descripcion\": \"Frijol a granel\",\n  \"unidadMedida\": \"kg\",\n  \"caloriasPorPorcion\": 127.5,\n  \"proteinas\": 8.7,\n  \"carbohidratos\": 22.8,\n  \"grasas\": 0.5,\n  \"estadoAlimento\": \"Activo\",\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos y semillas 1795150045\"\n}"
+              "body": "{\n  \"idAlimento\": 1,\n  \"nombreAlimento\": \"Frijol negro\",\n  \"descripcion\": \"Frijol a granel\",\n  \"unidadMedida\": \"kg\",\n  \"caloriasPorPorcion\": 127.5,\n  \"proteinas\": 8.7,\n  \"carbohidratos\": 22.8,\n  \"grasas\": 0.5,\n  \"estadoAlimento\": \"Activo\",\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos y semillas 1795214951\"\n}"
             }
           ]
         },
@@ -3580,7 +4243,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idAlimento\": 1,\n  \"nombreAlimento\": \"Frijol negro\",\n  \"descripcion\": \"Frijol negro a granel\",\n  \"unidadMedida\": \"kg\",\n  \"caloriasPorPorcion\": 130.0,\n  \"proteinas\": 9.0,\n  \"carbohidratos\": 23.0,\n  \"grasas\": 0.5,\n  \"estadoAlimento\": \"Activo\",\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos y semillas 1795150045\"\n}"
+              "body": "{\n  \"idAlimento\": 1,\n  \"nombreAlimento\": \"Frijol negro\",\n  \"descripcion\": \"Frijol negro a granel\",\n  \"unidadMedida\": \"kg\",\n  \"caloriasPorPorcion\": 130.0,\n  \"proteinas\": 9.0,\n  \"carbohidratos\": 23.0,\n  \"grasas\": 0.5,\n  \"estadoAlimento\": \"Activo\",\n  \"idCategoria\": 1,\n  \"nombreCategoria\": \"Granos y semillas 1795214951\"\n}"
             }
           ]
         },
@@ -3643,7 +4306,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idAlimento\": 1,\n    \"nombreAlimento\": \"Frijol negro\",\n    \"descripcion\": \"Frijol negro a granel\",\n    \"unidadMedida\": \"kg\",\n    \"caloriasPorPorcion\": 130.0,\n    \"proteinas\": 9.0,\n    \"carbohidratos\": 23.0,\n    \"grasas\": 0.5,\n    \"estadoAlimento\": \"Activo\",\n    \"idCategoria\": 1,\n    \"nombreCategoria\": \"Granos y semillas 1795150045\"\n  }\n]"
+              "body": "[\n  {\n    \"idAlimento\": 1,\n    \"nombreAlimento\": \"Frijol negro\",\n    \"descripcion\": \"Frijol negro a granel\",\n    \"unidadMedida\": \"kg\",\n    \"caloriasPorPorcion\": 130.0,\n    \"proteinas\": 9.0,\n    \"carbohidratos\": 23.0,\n    \"grasas\": 0.5,\n    \"estadoAlimento\": \"Activo\",\n    \"idCategoria\": 1,\n    \"nombreCategoria\": \"Granos y semillas 1795214951\"\n  }\n]"
             }
           ]
         },
@@ -3860,7 +4523,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idOrganizacion\": 1,\n  \"nombreOrganizacion\": \"Banco de Alimentos Querétaro\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"responsableOrganizacion\": \"María Torres\",\n  \"telefonoOrganizacion\": \"4421112233\",\n  \"correoOrganizacion\": \"contacto@banco.test\",\n  \"calleOrganizacion\": \"Av. Universidad\",\n  \"numeroExteriorOrganizacion\": \"100\",\n  \"numeroInteriorOrganizacion\": null,\n  \"coloniaOrganizacion\": \"Centro\",\n  \"codigoPostalOrganizacion\": \"76000\",\n  \"municipioOrganizacion\": \"Querétaro\",\n  \"estadoOrganizacion\": \"Querétaro\"\n}"
+              "body": "{\n  \"idOrganizacion\": 2,\n  \"nombreOrganizacion\": \"Banco de Alimentos Querétaro\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"responsableOrganizacion\": \"María Torres\",\n  \"telefonoOrganizacion\": \"4421112233\",\n  \"correoOrganizacion\": \"contacto@banco.test\",\n  \"calleOrganizacion\": \"Av. Universidad\",\n  \"numeroExteriorOrganizacion\": \"100\",\n  \"numeroInteriorOrganizacion\": null,\n  \"coloniaOrganizacion\": \"Centro\",\n  \"codigoPostalOrganizacion\": \"76000\",\n  \"municipioOrganizacion\": \"Querétaro\",\n  \"estadoOrganizacion\": \"Querétaro\",\n  \"idUsuario\": null\n}"
             }
           ]
         },
@@ -3931,7 +4594,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idOrganizacion\": 1,\n    \"nombreOrganizacion\": \"Banco de Alimentos Querétaro\",\n    \"tipoOrganizacion\": \"Asociación civil\",\n    \"responsableOrganizacion\": \"María Torres\",\n    \"telefonoOrganizacion\": \"4421112233\",\n    \"correoOrganizacion\": \"contacto@banco.test\",\n    \"calleOrganizacion\": \"Av. Universidad\",\n    \"numeroExteriorOrganizacion\": \"100\",\n    \"numeroInteriorOrganizacion\": null,\n    \"coloniaOrganizacion\": \"Centro\",\n    \"codigoPostalOrganizacion\": \"76000\",\n    \"municipioOrganizacion\": \"Querétaro\",\n    \"estadoOrganizacion\": \"Querétaro\"\n  }\n]"
+              "body": "[\n  {\n    \"idOrganizacion\": 2,\n    \"nombreOrganizacion\": \"Banco de Alimentos Querétaro\",\n    \"tipoOrganizacion\": \"Asociación civil\",\n    \"responsableOrganizacion\": \"María Torres\",\n    \"telefonoOrganizacion\": \"4421112233\",\n    \"correoOrganizacion\": \"contacto@banco.test\",\n    \"calleOrganizacion\": \"Av. Universidad\",\n    \"numeroExteriorOrganizacion\": \"100\",\n    \"numeroInteriorOrganizacion\": null,\n    \"coloniaOrganizacion\": \"Centro\",\n    \"codigoPostalOrganizacion\": \"76000\",\n    \"municipioOrganizacion\": \"Querétaro\",\n    \"estadoOrganizacion\": \"Querétaro\",\n    \"idUsuario\": null\n  }\n]"
             }
           ]
         },
@@ -3992,7 +4655,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idOrganizacion\": 1,\n  \"nombreOrganizacion\": \"Banco de Alimentos Querétaro\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"responsableOrganizacion\": \"María Torres\",\n  \"telefonoOrganizacion\": \"4421112233\",\n  \"correoOrganizacion\": \"contacto@banco.test\",\n  \"calleOrganizacion\": \"Av. Universidad\",\n  \"numeroExteriorOrganizacion\": \"100\",\n  \"numeroInteriorOrganizacion\": null,\n  \"coloniaOrganizacion\": \"Centro\",\n  \"codigoPostalOrganizacion\": \"76000\",\n  \"municipioOrganizacion\": \"Querétaro\",\n  \"estadoOrganizacion\": \"Querétaro\"\n}"
+              "body": "{\n  \"idOrganizacion\": 2,\n  \"nombreOrganizacion\": \"Banco de Alimentos Querétaro\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"responsableOrganizacion\": \"María Torres\",\n  \"telefonoOrganizacion\": \"4421112233\",\n  \"correoOrganizacion\": \"contacto@banco.test\",\n  \"calleOrganizacion\": \"Av. Universidad\",\n  \"numeroExteriorOrganizacion\": \"100\",\n  \"numeroInteriorOrganizacion\": null,\n  \"coloniaOrganizacion\": \"Centro\",\n  \"codigoPostalOrganizacion\": \"76000\",\n  \"municipioOrganizacion\": \"Querétaro\",\n  \"estadoOrganizacion\": \"Querétaro\",\n  \"idUsuario\": null\n}"
             }
           ]
         },
@@ -4081,7 +4744,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idOrganizacion\": 1,\n  \"nombreOrganizacion\": \"Banco de Alimentos Querétaro A.C.\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"responsableOrganizacion\": \"María Torres\",\n  \"telefonoOrganizacion\": null,\n  \"correoOrganizacion\": null,\n  \"calleOrganizacion\": null,\n  \"numeroExteriorOrganizacion\": null,\n  \"numeroInteriorOrganizacion\": null,\n  \"coloniaOrganizacion\": null,\n  \"codigoPostalOrganizacion\": \"76000\",\n  \"municipioOrganizacion\": \"Querétaro\",\n  \"estadoOrganizacion\": null\n}"
+              "body": "{\n  \"idOrganizacion\": 2,\n  \"nombreOrganizacion\": \"Banco de Alimentos Querétaro A.C.\",\n  \"tipoOrganizacion\": \"Asociación civil\",\n  \"responsableOrganizacion\": \"María Torres\",\n  \"telefonoOrganizacion\": null,\n  \"correoOrganizacion\": null,\n  \"calleOrganizacion\": null,\n  \"numeroExteriorOrganizacion\": null,\n  \"numeroInteriorOrganizacion\": null,\n  \"coloniaOrganizacion\": null,\n  \"codigoPostalOrganizacion\": \"76000\",\n  \"municipioOrganizacion\": \"Querétaro\",\n  \"estadoOrganizacion\": null,\n  \"idUsuario\": null\n}"
             }
           ]
         }
@@ -4176,7 +4839,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idComercio\": 1,\n  \"nombreComercio\": \"Abarrotes La Esperanza\",\n  \"razonSocial\": \"La Esperanza S.A. de C.V.\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"telefonoComercio\": \"4423334455\",\n  \"correoComercio\": \"ventas@esperanza.test\",\n  \"calleComercio\": \"Calle 5 de Mayo\",\n  \"numeroExteriorComercio\": \"25\",\n  \"numeroInteriorComercio\": null,\n  \"coloniaComercio\": \"Centro\",\n  \"codigoPostalComercio\": \"76000\",\n  \"municipioComercio\": \"Querétaro\",\n  \"estadoComercio\": \"Querétaro\"\n}"
+              "body": "{\n  \"idComercio\": 2,\n  \"nombreComercio\": \"Abarrotes La Esperanza\",\n  \"razonSocial\": \"La Esperanza S.A. de C.V.\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"telefonoComercio\": \"4423334455\",\n  \"correoComercio\": \"ventas@esperanza.test\",\n  \"calleComercio\": \"Calle 5 de Mayo\",\n  \"numeroExteriorComercio\": \"25\",\n  \"numeroInteriorComercio\": null,\n  \"coloniaComercio\": \"Centro\",\n  \"codigoPostalComercio\": \"76000\",\n  \"municipioComercio\": \"Querétaro\",\n  \"estadoComercio\": \"Querétaro\",\n  \"idUsuario\": null\n}"
             }
           ]
         },
@@ -4247,7 +4910,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idComercio\": 1,\n    \"nombreComercio\": \"Abarrotes La Esperanza\",\n    \"razonSocial\": \"La Esperanza S.A. de C.V.\",\n    \"tipoComercio\": \"Abarrotes\",\n    \"telefonoComercio\": \"4423334455\",\n    \"correoComercio\": \"ventas@esperanza.test\",\n    \"calleComercio\": \"Calle 5 de Mayo\",\n    \"numeroExteriorComercio\": \"25\",\n    \"numeroInteriorComercio\": null,\n    \"coloniaComercio\": \"Centro\",\n    \"codigoPostalComercio\": \"76000\",\n    \"municipioComercio\": \"Querétaro\",\n    \"estadoComercio\": \"Querétaro\"\n  }\n]"
+              "body": "[\n  {\n    \"idComercio\": 1,\n    \"nombreComercio\": \"Comercio de Prueba\",\n    \"razonSocial\": null,\n    \"tipoComercio\": \"Abarrotes\",\n    \"telefonoComercio\": null,\n    \"correoComercio\": null,\n    \"calleComercio\": null,\n    \"numeroExteriorComercio\": null,\n    \"numeroInteriorComercio\": null,\n    \"coloniaComercio\": null,\n    \"codigoPostalComercio\": \"76000\",\n    \"municipioComercio\": null,\n    \"estadoComercio\": null,\n    \"idUsuario\": 3\n  },\n  {\n    \"idComercio\": 2,\n    \"nombreComercio\": \"Abarrotes La Esperanza\",\n    \"razonSocial\": \"La Esperanza S.A. de C.V.\",\n    \"tipoComercio\": \"Abarrotes\",\n    \"telefonoComercio\": \"4423334455\",\n    \"correoComercio\": \"ventas@esperanza.test\",\n    \"calleComercio\": \"Calle 5 de Mayo\",\n    \"numeroExteriorComercio\": \"25\",\n    \"numeroInteriorComercio\": null,\n    \"coloniaComercio\": \"Centro\",\n    \"codigoPostalComercio\": \"76000\",\n    \"municipioComercio\": \"Querétaro\",\n    \"estadoComercio\": \"Querétaro\",\n    \"idUsuario\": null\n  }\n]"
             }
           ]
         },
@@ -4308,7 +4971,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idComercio\": 1,\n  \"nombreComercio\": \"Abarrotes La Esperanza\",\n  \"razonSocial\": \"La Esperanza S.A. de C.V.\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"telefonoComercio\": \"4423334455\",\n  \"correoComercio\": \"ventas@esperanza.test\",\n  \"calleComercio\": \"Calle 5 de Mayo\",\n  \"numeroExteriorComercio\": \"25\",\n  \"numeroInteriorComercio\": null,\n  \"coloniaComercio\": \"Centro\",\n  \"codigoPostalComercio\": \"76000\",\n  \"municipioComercio\": \"Querétaro\",\n  \"estadoComercio\": \"Querétaro\"\n}"
+              "body": "{\n  \"idComercio\": 2,\n  \"nombreComercio\": \"Abarrotes La Esperanza\",\n  \"razonSocial\": \"La Esperanza S.A. de C.V.\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"telefonoComercio\": \"4423334455\",\n  \"correoComercio\": \"ventas@esperanza.test\",\n  \"calleComercio\": \"Calle 5 de Mayo\",\n  \"numeroExteriorComercio\": \"25\",\n  \"numeroInteriorComercio\": null,\n  \"coloniaComercio\": \"Centro\",\n  \"codigoPostalComercio\": \"76000\",\n  \"municipioComercio\": \"Querétaro\",\n  \"estadoComercio\": \"Querétaro\",\n  \"idUsuario\": null\n}"
             }
           ]
         },
@@ -4397,7 +5060,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idComercio\": 1,\n  \"nombreComercio\": \"Abarrotes La Esperanza\",\n  \"razonSocial\": \"La Esperanza S.A. de C.V.\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"telefonoComercio\": null,\n  \"correoComercio\": null,\n  \"calleComercio\": null,\n  \"numeroExteriorComercio\": null,\n  \"numeroInteriorComercio\": null,\n  \"coloniaComercio\": null,\n  \"codigoPostalComercio\": \"76000\",\n  \"municipioComercio\": \"Querétaro\",\n  \"estadoComercio\": null\n}"
+              "body": "{\n  \"idComercio\": 2,\n  \"nombreComercio\": \"Abarrotes La Esperanza\",\n  \"razonSocial\": \"La Esperanza S.A. de C.V.\",\n  \"tipoComercio\": \"Abarrotes\",\n  \"telefonoComercio\": null,\n  \"correoComercio\": null,\n  \"calleComercio\": null,\n  \"numeroExteriorComercio\": null,\n  \"numeroInteriorComercio\": null,\n  \"coloniaComercio\": null,\n  \"codigoPostalComercio\": \"76000\",\n  \"municipioComercio\": \"Querétaro\",\n  \"estadoComercio\": null,\n  \"idUsuario\": null\n}"
             }
           ]
         }
@@ -4492,7 +5155,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idBeneficiario\": 1,\n  \"nombreBeneficiario\": \"Luis\",\n  \"ap\": \"Pérez\",\n  \"am\": \"García\",\n  \"telefono\": \"4425556677\",\n  \"correo\": \"luis@correo.test\",\n  \"numeroIntegrantes\": 4,\n  \"calle\": \"Av. Hidalgo\",\n  \"numeroExterior\": \"12\",\n  \"numeroInterior\": \"B\",\n  \"colonia\": \"Centro\",\n  \"codigoPostal\": \"76010\",\n  \"municipio\": \"Querétaro\",\n  \"estadoBeneficiario\": \"Querétaro\"\n}"
+              "body": "{\n  \"idBeneficiario\": 2,\n  \"nombreBeneficiario\": \"Luis\",\n  \"ap\": \"Pérez\",\n  \"am\": \"García\",\n  \"telefono\": \"4425556677\",\n  \"correo\": \"luis@correo.test\",\n  \"numeroIntegrantes\": 4,\n  \"calle\": \"Av. Hidalgo\",\n  \"numeroExterior\": \"12\",\n  \"numeroInterior\": \"B\",\n  \"colonia\": \"Centro\",\n  \"codigoPostal\": \"76010\",\n  \"municipio\": \"Querétaro\",\n  \"estadoBeneficiario\": \"Querétaro\",\n  \"idUsuario\": null\n}"
             }
           ]
         },
@@ -4563,7 +5226,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idBeneficiario\": 1,\n    \"nombreBeneficiario\": \"Luis\",\n    \"ap\": \"Pérez\",\n    \"am\": \"García\",\n    \"telefono\": \"4425556677\",\n    \"correo\": \"luis@correo.test\",\n    \"numeroIntegrantes\": 4,\n    \"calle\": \"Av. Hidalgo\",\n    \"numeroExterior\": \"12\",\n    \"numeroInterior\": \"B\",\n    \"colonia\": \"Centro\",\n    \"codigoPostal\": \"76010\",\n    \"municipio\": \"Querétaro\",\n    \"estadoBeneficiario\": \"Querétaro\"\n  }\n]"
+              "body": "[\n  {\n    \"idBeneficiario\": 2,\n    \"nombreBeneficiario\": \"Luis\",\n    \"ap\": \"Pérez\",\n    \"am\": \"García\",\n    \"telefono\": \"4425556677\",\n    \"correo\": \"luis@correo.test\",\n    \"numeroIntegrantes\": 4,\n    \"calle\": \"Av. Hidalgo\",\n    \"numeroExterior\": \"12\",\n    \"numeroInterior\": \"B\",\n    \"colonia\": \"Centro\",\n    \"codigoPostal\": \"76010\",\n    \"municipio\": \"Querétaro\",\n    \"estadoBeneficiario\": \"Querétaro\",\n    \"idUsuario\": null\n  }\n]"
             }
           ]
         },
@@ -4624,7 +5287,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idBeneficiario\": 1,\n  \"nombreBeneficiario\": \"Luis\",\n  \"ap\": \"Pérez\",\n  \"am\": \"García\",\n  \"telefono\": \"4425556677\",\n  \"correo\": \"luis@correo.test\",\n  \"numeroIntegrantes\": 4,\n  \"calle\": \"Av. Hidalgo\",\n  \"numeroExterior\": \"12\",\n  \"numeroInterior\": \"B\",\n  \"colonia\": \"Centro\",\n  \"codigoPostal\": \"76010\",\n  \"municipio\": \"Querétaro\",\n  \"estadoBeneficiario\": \"Querétaro\"\n}"
+              "body": "{\n  \"idBeneficiario\": 2,\n  \"nombreBeneficiario\": \"Luis\",\n  \"ap\": \"Pérez\",\n  \"am\": \"García\",\n  \"telefono\": \"4425556677\",\n  \"correo\": \"luis@correo.test\",\n  \"numeroIntegrantes\": 4,\n  \"calle\": \"Av. Hidalgo\",\n  \"numeroExterior\": \"12\",\n  \"numeroInterior\": \"B\",\n  \"colonia\": \"Centro\",\n  \"codigoPostal\": \"76010\",\n  \"municipio\": \"Querétaro\",\n  \"estadoBeneficiario\": \"Querétaro\",\n  \"idUsuario\": null\n}"
             }
           ]
         },
@@ -4713,7 +5376,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idBeneficiario\": 1,\n  \"nombreBeneficiario\": \"Luis\",\n  \"ap\": \"Pérez\",\n  \"am\": \"García\",\n  \"telefono\": null,\n  \"correo\": null,\n  \"numeroIntegrantes\": 5,\n  \"calle\": null,\n  \"numeroExterior\": null,\n  \"numeroInterior\": null,\n  \"colonia\": null,\n  \"codigoPostal\": \"76010\",\n  \"municipio\": \"Querétaro\",\n  \"estadoBeneficiario\": \"Querétaro\"\n}"
+              "body": "{\n  \"idBeneficiario\": 2,\n  \"nombreBeneficiario\": \"Luis\",\n  \"ap\": \"Pérez\",\n  \"am\": \"García\",\n  \"telefono\": null,\n  \"correo\": null,\n  \"numeroIntegrantes\": 5,\n  \"calle\": null,\n  \"numeroExterior\": null,\n  \"numeroInterior\": null,\n  \"colonia\": null,\n  \"codigoPostal\": \"76010\",\n  \"municipio\": \"Querétaro\",\n  \"estadoBeneficiario\": \"Querétaro\",\n  \"idUsuario\": null\n}"
             }
           ]
         },
@@ -4895,7 +5558,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idPreferencias\": 1,\n  \"tipoPreferencia\": \"Alergia\",\n  \"descripcionPreferencia\": \"Alergia a leguminosas\",\n  \"observacionesPreferencia\": \"Evitar frijol\",\n  \"idBeneficiario\": 1\n}"
+              "body": "{\n  \"idPreferencias\": 1,\n  \"tipoPreferencia\": \"Alergia\",\n  \"descripcionPreferencia\": \"Alergia a leguminosas\",\n  \"observacionesPreferencia\": \"Evitar frijol\",\n  \"idBeneficiario\": 2\n}"
             }
           ]
         },
@@ -4966,7 +5629,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idPreferencias\": 1,\n    \"tipoPreferencia\": \"Alergia\",\n    \"descripcionPreferencia\": \"Alergia a leguminosas\",\n    \"observacionesPreferencia\": \"Evitar frijol\",\n    \"idBeneficiario\": 1\n  }\n]"
+              "body": "[\n  {\n    \"idPreferencias\": 1,\n    \"tipoPreferencia\": \"Alergia\",\n    \"descripcionPreferencia\": \"Alergia a leguminosas\",\n    \"observacionesPreferencia\": \"Evitar frijol\",\n    \"idBeneficiario\": 2\n  }\n]"
             }
           ]
         },
@@ -5027,7 +5690,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idPreferencias\": 1,\n  \"tipoPreferencia\": \"Alergia\",\n  \"descripcionPreferencia\": \"Alergia a leguminosas\",\n  \"observacionesPreferencia\": \"Evitar frijol\",\n  \"idBeneficiario\": 1\n}"
+              "body": "{\n  \"idPreferencias\": 1,\n  \"tipoPreferencia\": \"Alergia\",\n  \"descripcionPreferencia\": \"Alergia a leguminosas\",\n  \"observacionesPreferencia\": \"Evitar frijol\",\n  \"idBeneficiario\": 2\n}"
             }
           ]
         },
@@ -5116,7 +5779,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idPreferencias\": 1,\n  \"tipoPreferencia\": \"Alergia\",\n  \"descripcionPreferencia\": \"Alergia severa a leguminosas\",\n  \"observacionesPreferencia\": \"Evitar frijol y lenteja\",\n  \"idBeneficiario\": 1\n}"
+              "body": "{\n  \"idPreferencias\": 1,\n  \"tipoPreferencia\": \"Alergia\",\n  \"descripcionPreferencia\": \"Alergia severa a leguminosas\",\n  \"observacionesPreferencia\": \"Evitar frijol y lenteja\",\n  \"idBeneficiario\": 2\n}"
             }
           ]
         },
@@ -5179,7 +5842,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idPreferencias\": 1,\n    \"tipoPreferencia\": \"Alergia\",\n    \"descripcionPreferencia\": \"Alergia severa a leguminosas\",\n    \"observacionesPreferencia\": \"Evitar frijol y lenteja\",\n    \"idBeneficiario\": 1\n  }\n]"
+              "body": "[\n  {\n    \"idPreferencias\": 1,\n    \"tipoPreferencia\": \"Alergia\",\n    \"descripcionPreferencia\": \"Alergia severa a leguminosas\",\n    \"observacionesPreferencia\": \"Evitar frijol y lenteja\",\n    \"idBeneficiario\": 2\n  }\n]"
             }
           ]
         }
@@ -5276,7 +5939,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idPreferencias\": 1,\n    \"idAlimento\": 1,\n    \"idBeneficiario\": 1,\n    \"nombreAlimento\": \"Frijol negro\"\n  }\n]"
+              "body": "[\n  {\n    \"idPreferencias\": 1,\n    \"idAlimento\": 1,\n    \"idBeneficiario\": 2,\n    \"nombreAlimento\": \"Frijol negro\"\n  }\n]"
             }
           ]
         },
@@ -5430,7 +6093,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idPreferencias\": 1,\n    \"idAlimento\": 1,\n    \"idBeneficiario\": 1,\n    \"nombreAlimento\": \"Frijol negro\"\n  }\n]"
+              "body": "[\n  {\n    \"idPreferencias\": 1,\n    \"idAlimento\": 1,\n    \"idBeneficiario\": 2,\n    \"nombreAlimento\": \"Frijol negro\"\n  }\n]"
             }
           ]
         }
@@ -5525,7 +6188,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idSolicitud\": 1,\n  \"fechaSolicitud\": \"2026-11-19\",\n  \"motivo\": \"Apoyo alimentario mensual\",\n  \"numeroIntegrantes\": 4,\n  \"prioridad\": \"Alta\",\n  \"estadoSolicitud\": \"Pendiente\",\n  \"idOrganizacion\": 1,\n  \"idBeneficiario\": 1\n}"
+              "body": "{\n  \"idSolicitud\": 1,\n  \"fechaSolicitud\": \"2026-11-20\",\n  \"motivo\": \"Apoyo alimentario mensual\",\n  \"numeroIntegrantes\": 4,\n  \"prioridad\": \"Alta\",\n  \"estadoSolicitud\": \"Pendiente\",\n  \"idOrganizacion\": 2,\n  \"idBeneficiario\": 2\n}"
             }
           ]
         },
@@ -5604,7 +6267,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idSolicitud\": 1,\n    \"fechaSolicitud\": \"2026-11-19\",\n    \"motivo\": \"Apoyo alimentario mensual\",\n    \"numeroIntegrantes\": 4,\n    \"prioridad\": \"Alta\",\n    \"estadoSolicitud\": \"Pendiente\",\n    \"idOrganizacion\": 1,\n    \"idBeneficiario\": 1\n  }\n]"
+              "body": "[\n  {\n    \"idSolicitud\": 1,\n    \"fechaSolicitud\": \"2026-11-20\",\n    \"motivo\": \"Apoyo alimentario mensual\",\n    \"numeroIntegrantes\": 4,\n    \"prioridad\": \"Alta\",\n    \"estadoSolicitud\": \"Pendiente\",\n    \"idOrganizacion\": 2,\n    \"idBeneficiario\": 2\n  }\n]"
             }
           ]
         },
@@ -5665,7 +6328,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idSolicitud\": 1,\n  \"fechaSolicitud\": \"2026-11-19\",\n  \"motivo\": \"Apoyo alimentario mensual\",\n  \"numeroIntegrantes\": 4,\n  \"prioridad\": \"Alta\",\n  \"estadoSolicitud\": \"Pendiente\",\n  \"idOrganizacion\": 1,\n  \"idBeneficiario\": 1\n}"
+              "body": "{\n  \"idSolicitud\": 1,\n  \"fechaSolicitud\": \"2026-11-20\",\n  \"motivo\": \"Apoyo alimentario mensual\",\n  \"numeroIntegrantes\": 4,\n  \"prioridad\": \"Alta\",\n  \"estadoSolicitud\": \"Pendiente\",\n  \"idOrganizacion\": 2,\n  \"idBeneficiario\": 2\n}"
             }
           ]
         },
@@ -5754,7 +6417,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idSolicitud\": 1,\n  \"fechaSolicitud\": \"2026-11-19\",\n  \"motivo\": \"Apoyo alimentario mensual (actualizado)\",\n  \"numeroIntegrantes\": 5,\n  \"prioridad\": \"Alta\",\n  \"estadoSolicitud\": \"En revisión\",\n  \"idOrganizacion\": 1,\n  \"idBeneficiario\": 1\n}"
+              "body": "{\n  \"idSolicitud\": 1,\n  \"fechaSolicitud\": \"2026-11-20\",\n  \"motivo\": \"Apoyo alimentario mensual (actualizado)\",\n  \"numeroIntegrantes\": 5,\n  \"prioridad\": \"Alta\",\n  \"estadoSolicitud\": \"En revisión\",\n  \"idOrganizacion\": 2,\n  \"idBeneficiario\": 2\n}"
             }
           ]
         },
@@ -5845,7 +6508,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idSolicitud\": 1,\n  \"fechaSolicitud\": \"2026-11-19\",\n  \"motivo\": \"Apoyo alimentario mensual (actualizado)\",\n  \"numeroIntegrantes\": 5,\n  \"prioridad\": \"Alta\",\n  \"estadoSolicitud\": \"Aprobada\",\n  \"idOrganizacion\": 1,\n  \"idBeneficiario\": 1\n}"
+              "body": "{\n  \"idSolicitud\": 1,\n  \"fechaSolicitud\": \"2026-11-20\",\n  \"motivo\": \"Apoyo alimentario mensual (actualizado)\",\n  \"numeroIntegrantes\": 5,\n  \"prioridad\": \"Alta\",\n  \"estadoSolicitud\": \"Aprobada\",\n  \"idOrganizacion\": 2,\n  \"idBeneficiario\": 2\n}"
             }
           ]
         },
@@ -5908,7 +6571,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idSolicitud\": 1,\n    \"fechaSolicitud\": \"2026-11-19\",\n    \"motivo\": \"Apoyo alimentario mensual (actualizado)\",\n    \"numeroIntegrantes\": 5,\n    \"prioridad\": \"Alta\",\n    \"estadoSolicitud\": \"Aprobada\",\n    \"idOrganizacion\": 1,\n    \"idBeneficiario\": 1\n  }\n]"
+              "body": "[\n  {\n    \"idSolicitud\": 1,\n    \"fechaSolicitud\": \"2026-11-20\",\n    \"motivo\": \"Apoyo alimentario mensual (actualizado)\",\n    \"numeroIntegrantes\": 5,\n    \"prioridad\": \"Alta\",\n    \"estadoSolicitud\": \"Aprobada\",\n    \"idOrganizacion\": 2,\n    \"idBeneficiario\": 2\n  }\n]"
             }
           ]
         },
@@ -5971,7 +6634,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idSolicitud\": 1,\n    \"fechaSolicitud\": \"2026-11-19\",\n    \"motivo\": \"Apoyo alimentario mensual (actualizado)\",\n    \"numeroIntegrantes\": 5,\n    \"prioridad\": \"Alta\",\n    \"estadoSolicitud\": \"Aprobada\",\n    \"idOrganizacion\": 1,\n    \"idBeneficiario\": 1\n  }\n]"
+              "body": "[\n  {\n    \"idSolicitud\": 1,\n    \"fechaSolicitud\": \"2026-11-20\",\n    \"motivo\": \"Apoyo alimentario mensual (actualizado)\",\n    \"numeroIntegrantes\": 5,\n    \"prioridad\": \"Alta\",\n    \"estadoSolicitud\": \"Aprobada\",\n    \"idOrganizacion\": 2,\n    \"idBeneficiario\": 2\n  }\n]"
             }
           ]
         }
@@ -6538,7 +7201,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 35.5,\n  \"estadoDonacion\": \"Recibida\",\n  \"observacionesDonacion\": \"Donación semanal\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 25.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
+              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 35.5,\n  \"estadoDonacion\": \"Recibida\",\n  \"observacionesDonacion\": \"Donación semanal\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 25.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
             }
           ]
         },
@@ -6741,7 +7404,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 35.5,\n  \"estadoDonacion\": \"Recibida\",\n  \"observacionesDonacion\": \"Donación semanal\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 25.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
+              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 35.5,\n  \"estadoDonacion\": \"Recibida\",\n  \"observacionesDonacion\": \"Donación semanal\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 25.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
             }
           ]
         },
@@ -6830,7 +7493,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 35.5,\n  \"estadoDonacion\": \"Clasificada\",\n  \"observacionesDonacion\": \"Revisada en almacén\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 25.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
+              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 35.5,\n  \"estadoDonacion\": \"Clasificada\",\n  \"observacionesDonacion\": \"Revisada en almacén\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 25.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
             }
           ]
         },
@@ -6924,7 +7587,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 40.0,\n  \"estadoDonacion\": \"Clasificada\",\n  \"observacionesDonacion\": \"Revisada en almacén\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 25.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 3,\n      \"cantidadDetalleDonacion\": 4.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
+              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 40.0,\n  \"estadoDonacion\": \"Clasificada\",\n  \"observacionesDonacion\": \"Revisada en almacén\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 25.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 3,\n      \"cantidadDetalleDonacion\": 4.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
             }
           ]
         },
@@ -7017,7 +7680,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 45.0,\n  \"estadoDonacion\": \"Clasificada\",\n  \"observacionesDonacion\": \"Revisada en almacén\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 30.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 3,\n      \"cantidadDetalleDonacion\": 4.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 1,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
+              "body": "{\n  \"idDonacion\": 1,\n  \"fechaDonacion\": \"2026-11-15\",\n  \"cantidadTotal\": 45.0,\n  \"estadoDonacion\": \"Clasificada\",\n  \"observacionesDonacion\": \"Revisada en almacén\",\n  \"detalles\": [\n    {\n      \"idDetalleDonacion\": 1,\n      \"cantidadDetalleDonacion\": 30.0,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 2,\n      \"cantidadDetalleDonacion\": 10.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    },\n    {\n      \"idDetalleDonacion\": 3,\n      \"cantidadDetalleDonacion\": 4.5,\n      \"unidadMedidaDetalleDonacion\": \"kg\",\n      \"idAlimento\": 1,\n      \"idComercio\": 2,\n      \"idDonacion\": 1,\n      \"nombreAlimento\": \"Frijol negro\",\n      \"nombreComercio\": \"Abarrotes La Esperanza\"\n    }\n  ]\n}"
             }
           ]
         },
@@ -7258,7 +7921,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idInventario\": 1,\n  \"cantidadDisponible\": 35.5,\n  \"fechaActualizacion\": \"2026-11-19\",\n  \"estadoInventario\": \"Disponible\",\n  \"idDonacion\": 1,\n  \"idOrganizacion\": 1\n}"
+              "body": "{\n  \"idInventario\": 1,\n  \"cantidadDisponible\": 35.5,\n  \"fechaActualizacion\": \"2026-11-20\",\n  \"estadoInventario\": \"Disponible\",\n  \"idDonacion\": 1,\n  \"idOrganizacion\": 2\n}"
             }
           ]
         },
@@ -7329,7 +7992,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idInventario\": 1,\n    \"cantidadDisponible\": 35.5,\n    \"fechaActualizacion\": \"2026-11-19\",\n    \"estadoInventario\": \"Disponible\",\n    \"idDonacion\": 1,\n    \"idOrganizacion\": 1\n  }\n]"
+              "body": "[\n  {\n    \"idInventario\": 1,\n    \"cantidadDisponible\": 35.5,\n    \"fechaActualizacion\": \"2026-11-20\",\n    \"estadoInventario\": \"Disponible\",\n    \"idDonacion\": 1,\n    \"idOrganizacion\": 2\n  }\n]"
             }
           ]
         },
@@ -7390,7 +8053,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idInventario\": 1,\n  \"cantidadDisponible\": 35.5,\n  \"fechaActualizacion\": \"2026-11-19\",\n  \"estadoInventario\": \"Disponible\",\n  \"idDonacion\": 1,\n  \"idOrganizacion\": 1\n}"
+              "body": "{\n  \"idInventario\": 1,\n  \"cantidadDisponible\": 35.5,\n  \"fechaActualizacion\": \"2026-11-20\",\n  \"estadoInventario\": \"Disponible\",\n  \"idDonacion\": 1,\n  \"idOrganizacion\": 2\n}"
             }
           ]
         },
@@ -7479,7 +8142,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idInventario\": 1,\n  \"cantidadDisponible\": 30.0,\n  \"fechaActualizacion\": \"2026-11-19\",\n  \"estadoInventario\": \"Disponible\",\n  \"idDonacion\": 1,\n  \"idOrganizacion\": 1\n}"
+              "body": "{\n  \"idInventario\": 1,\n  \"cantidadDisponible\": 30.0,\n  \"fechaActualizacion\": \"2026-11-20\",\n  \"estadoInventario\": \"Disponible\",\n  \"idDonacion\": 1,\n  \"idOrganizacion\": 2\n}"
             }
           ]
         },
@@ -7542,7 +8205,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idInventario\": 1,\n    \"cantidadDisponible\": 30.0,\n    \"fechaActualizacion\": \"2026-11-19\",\n    \"estadoInventario\": \"Disponible\",\n    \"idDonacion\": 1,\n    \"idOrganizacion\": 1\n  }\n]"
+              "body": "[\n  {\n    \"idInventario\": 1,\n    \"cantidadDisponible\": 30.0,\n    \"fechaActualizacion\": \"2026-11-20\",\n    \"estadoInventario\": \"Disponible\",\n    \"idDonacion\": 1,\n    \"idOrganizacion\": 2\n  }\n]"
             }
           ]
         }
@@ -9113,8 +9776,8 @@
           ]
         },
         {
-          "id": "14e41364-7dc0-56cc-8a50-32d07c630bde",
-          "name": "Beneficiario crea solicitud (201)",
+          "id": "2dd40b74-6594-543a-92e0-3b690229035a",
+          "name": "Beneficiario crea solicitud propia (201)",
           "event": [
             {
               "listen": "test",
@@ -9149,7 +9812,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"motivo\": \"Solicitud creada por beneficiario\",\n  \"numeroIntegrantes\": 2,\n  \"idOrganizacion\": {{idOrganizacion}},\n  \"idBeneficiario\": {{idBeneficiario}}\n}",
+              "raw": "{\n  \"motivo\": \"Solicitud creada por beneficiario\",\n  \"numeroIntegrantes\": 2,\n  \"idOrganizacion\": {{idOrganizacion}},\n  \"idBeneficiario\": {{idBeneficiarioPropio}}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -9190,7 +9853,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"motivo\": \"Solicitud creada por beneficiario\",\n  \"numeroIntegrantes\": 2,\n  \"idOrganizacion\": {{idOrganizacion}},\n  \"idBeneficiario\": {{idBeneficiario}}\n}",
+                  "raw": "{\n  \"motivo\": \"Solicitud creada por beneficiario\",\n  \"numeroIntegrantes\": 2,\n  \"idOrganizacion\": {{idOrganizacion}},\n  \"idBeneficiario\": {{idBeneficiarioPropio}}\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -9217,7 +9880,275 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"idSolicitud\": 2,\n  \"fechaSolicitud\": \"2026-11-19\",\n  \"motivo\": \"Solicitud creada por beneficiario\",\n  \"numeroIntegrantes\": 2,\n  \"prioridad\": null,\n  \"estadoSolicitud\": null,\n  \"idOrganizacion\": 1,\n  \"idBeneficiario\": 1\n}"
+              "body": "{\n  \"idSolicitud\": 2,\n  \"fechaSolicitud\": \"2026-11-20\",\n  \"motivo\": \"Solicitud creada por beneficiario\",\n  \"numeroIntegrantes\": 2,\n  \"prioridad\": null,\n  \"estadoSolicitud\": null,\n  \"idOrganizacion\": 2,\n  \"idBeneficiario\": 1\n}"
+            }
+          ]
+        },
+        {
+          "id": "5680fc81-972f-5572-b35c-4d4fa84b6298",
+          "name": "Beneficiario crea solicitud ajena (403)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 403\", () => pm.response.to.have.status(403));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/solicitudes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "solicitudes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"motivo\": \"Solicitud para otra familia\",\n  \"idOrganizacion\": {{idOrganizacion}},\n  \"idBeneficiario\": {{idBeneficiario}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenBeneficiario}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/solicitudes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "solicitudes"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"motivo\": \"Solicitud para otra familia\",\n  \"idOrganizacion\": {{idOrganizacion}},\n  \"idBeneficiario\": {{idBeneficiario}}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenBeneficiario}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mensaje\": \"Solo puedes acceder a los datos vinculados a tu cuenta\"\n}"
+            }
+          ]
+        },
+        {
+          "id": "78e121bd-c364-5d5f-847f-dac2c973e951",
+          "name": "Beneficiario consulta beneficiario ajeno (403)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 403\", () => pm.response.to.have.status(403));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/beneficiarios/{{idBeneficiario}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "beneficiarios",
+                "{{idBeneficiario}}"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenBeneficiario}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "403 Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/beneficiarios/{{idBeneficiario}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "beneficiarios",
+                    "{{idBeneficiario}}"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenBeneficiario}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mensaje\": \"Solo puedes acceder a los datos vinculados a tu cuenta\"\n}"
+            }
+          ]
+        },
+        {
+          "id": "c1e06b72-4578-5c8a-a942-69d8712de728",
+          "name": "Comercio lista sus donaciones (200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.response.to.be.json);",
+                  "pm.test(\"Solo ve donaciones de su comercio\", () => pm.expect(pm.response.json().length).to.eql(0));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/donaciones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "donaciones"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{tokenComercio}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/donaciones",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "donaciones"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{tokenComercio}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]"
             }
           ]
         },
@@ -9296,7 +10227,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"idAlimento\": 1,\n    \"nombreAlimento\": \"Frijol negro\",\n    \"descripcion\": \"Frijol negro a granel\",\n    \"unidadMedida\": \"kg\",\n    \"caloriasPorPorcion\": 130.0,\n    \"proteinas\": 9.0,\n    \"carbohidratos\": 23.0,\n    \"grasas\": 0.5,\n    \"estadoAlimento\": \"Activo\",\n    \"idCategoria\": 1,\n    \"nombreCategoria\": \"Granos y semillas 1795150045\"\n  }\n]"
+              "body": "[\n  {\n    \"idAlimento\": 1,\n    \"nombreAlimento\": \"Frijol negro\",\n    \"descripcion\": \"Frijol negro a granel\",\n    \"unidadMedida\": \"kg\",\n    \"caloriasPorPorcion\": 130.0,\n    \"proteinas\": 9.0,\n    \"carbohidratos\": 23.0,\n    \"grasas\": 0.5,\n    \"estadoAlimento\": \"Activo\",\n    \"idCategoria\": 1,\n    \"nombreCategoria\": \"Granos y semillas 1795214951\"\n  }\n]"
             }
           ]
         }
@@ -10310,6 +11241,21 @@
     },
     {
       "key": "idDetalleReceta2",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "idBeneficiarioPropio",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "idComercioPropio",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "idOrganizacionPropia",
       "value": "",
       "type": "string"
     }

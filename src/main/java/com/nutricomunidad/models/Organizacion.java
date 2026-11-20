@@ -13,5 +13,6 @@ public record Organizacion(
         String coloniaOrganizacion,
         String codigoPostalOrganizacion,
         String municipioOrganizacion,
-        String estadoOrganizacion) {
+        String estadoOrganizacion,
+        Integer idUsuario) {
 }

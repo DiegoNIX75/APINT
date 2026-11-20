@@ -13,6 +13,10 @@ public final class Errores {
         return new ResponseStatusException(HttpStatus.NOT_FOUND, recurso + " con id " + id + " no encontrado");
     }
 
+    public static ResponseStatusException noEncontrado(String mensaje) {
+        return new ResponseStatusException(HttpStatus.NOT_FOUND, mensaje);
+    }
+
     public static ResponseStatusException peticionInvalida(String mensaje) {
         return new ResponseStatusException(HttpStatus.BAD_REQUEST, mensaje);
     }

@@ -31,6 +31,10 @@ public class InventarioService {
                 .igualSinMayusculas("estado_inventario", estado));
     }
 
+    public java.util.Optional<Inventario> buscar(int id) {
+        return inventarios.buscarPorId(id);
+    }
+
     public Inventario obtener(int id) {
         return inventarios.buscarPorId(id).orElseThrow(() -> Errores.noEncontrado("Inventario", id));
     }

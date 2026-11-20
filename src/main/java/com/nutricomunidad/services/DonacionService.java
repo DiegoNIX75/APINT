@@ -4,6 +4,7 @@ import com.nutricomunidad.dto.DetalleDonacionRequest;
 import com.nutricomunidad.dto.DonacionActualizacionRequest;
 import com.nutricomunidad.dto.DonacionRequest;
 import com.nutricomunidad.dto.DonacionResponse;
+import com.nutricomunidad.dto.UsuarioToken;
 import com.nutricomunidad.errors.Errores;
 import com.nutricomunidad.models.DetalleDonacion;
 import com.nutricomunidad.models.Donacion;
@@ -12,6 +13,7 @@ import com.nutricomunidad.repositories.ComercioRepository;
 import com.nutricomunidad.repositories.DetalleDonacionRepository;
 import com.nutricomunidad.repositories.DonacionRepository;
 import com.nutricomunidad.repositories.Filtro;
+import com.nutricomunidad.security.Roles;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -28,13 +30,15 @@ public class DonacionService {
     private final DetalleDonacionRepository detalles;
     private final AlimentoRepository alimentos;
     private final ComercioRepository comercios;
+    private final AccesoService acceso;
 
     public DonacionService(DonacionRepository donaciones, DetalleDonacionRepository detalles,
-                           AlimentoRepository alimentos, ComercioRepository comercios) {
+                           AlimentoRepository alimentos, ComercioRepository comercios, AccesoService acceso) {
         this.donaciones = donaciones;
         this.detalles = detalles;
         this.alimentos = alimentos;
         this.comercios = comercios;
+        this.acceso = acceso;
     }
 
     public List<Donacion> listar(String estado, Integer idComercio) {
@@ -52,8 +56,8 @@ public class DonacionService {
     }
 
     @Transactional
-    public DonacionResponse crear(DonacionRequest r) {
-        r.detalles().forEach(this::validarDetalle);
+    public DonacionResponse crear(DonacionRequest r, UsuarioToken usuario) {
+        r.detalles().forEach(detalle -> validarDetalle(detalle, usuario));
         LocalDate fecha = r.fechaDonacion() == null ? LocalDate.now() : r.fechaDonacion();
         int id = donaciones.crear(fecha, r.estadoDonacion(), r.observacionesDonacion());
         r.detalles().forEach(detalle -> detalles.crear(id, detalle));
@@ -61,8 +65,8 @@ public class DonacionService {
         return obtener(id);
     }
 
-    public DonacionResponse actualizar(int id, DonacionActualizacionRequest r) {
-        asegurarExiste(id);
+    public DonacionResponse actualizar(int id, DonacionActualizacionRequest r, UsuarioToken usuario) {
+        exigirAcceso(id, usuario);
         donaciones.actualizar(id, r.fechaDonacion(), r.estadoDonacion(), r.observacionesDonacion());
         return obtener(id);
     }
@@ -74,26 +78,29 @@ public class DonacionService {
     }
 
     @Transactional
-    public DonacionResponse agregarDetalle(int idDonacion, DetalleDonacionRequest r) {
-        asegurarExiste(idDonacion);
-        validarDetalle(r);
+    public DonacionResponse agregarDetalle(int idDonacion, DetalleDonacionRequest r, UsuarioToken usuario) {
+        exigirAcceso(idDonacion, usuario);
+        validarDetalle(r, usuario);
         detalles.crear(idDonacion, r);
         donaciones.recalcularTotal(idDonacion);
         return obtener(idDonacion);
     }
 
     @Transactional
-    public DonacionResponse actualizarDetalle(int idDonacion, int idDetalle, DetalleDonacionRequest r) {
-        obtenerDetalleDe(idDonacion, idDetalle);
-        validarDetalle(r);
+    public DonacionResponse actualizarDetalle(int idDonacion, int idDetalle, DetalleDonacionRequest r,
+                                              UsuarioToken usuario) {
+        DetalleDonacion actual = obtenerDetalleDe(idDonacion, idDetalle);
+        acceso.exigirComercio(usuario, actual.idComercio());
+        validarDetalle(r, usuario);
         detalles.actualizar(idDetalle, r);
         donaciones.recalcularTotal(idDonacion);
         return obtener(idDonacion);
     }
 
     @Transactional
-    public void eliminarDetalle(int idDonacion, int idDetalle) {
-        obtenerDetalleDe(idDonacion, idDetalle);
+    public void eliminarDetalle(int idDonacion, int idDetalle, UsuarioToken usuario) {
+        DetalleDonacion actual = obtenerDetalleDe(idDonacion, idDetalle);
+        acceso.exigirComercio(usuario, actual.idComercio());
         detalles.eliminar(idDetalle);
         donaciones.recalcularTotal(idDonacion);
     }
@@ -105,9 +112,22 @@ public class DonacionService {
                 .orElseThrow(() -> Errores.noEncontrado("Detalle de la donación " + idDonacion, idDetalle));
     }
 
-    private void validarDetalle(DetalleDonacionRequest r) {
+    private void validarDetalle(DetalleDonacionRequest r, UsuarioToken usuario) {
         Errores.validarReferencia(alimentos.existe(r.idAlimento()), "El alimento", r.idAlimento());
         Errores.validarReferencia(comercios.existe(r.idComercio()), "El comercio", r.idComercio());
+        acceso.exigirComercio(usuario, r.idComercio());
+    }
+
+    /** Un Comercio sólo puede consultar o modificar donaciones que incluyen productos de su comercio. */
+    public void exigirAcceso(int idDonacion, UsuarioToken usuario) {
+        asegurarExiste(idDonacion);
+        if (AccesoService.tieneRol(usuario, Roles.COMERCIO)) {
+            int propio = acceso.idComercioOSinResultados(usuario);
+            boolean incluye = detalles.listarPorDonacion(idDonacion).stream().anyMatch(d -> d.idComercio() == propio);
+            if (!incluye) {
+                throw Errores.prohibido("Solo puedes acceder a las donaciones de tu comercio");
+            }
+        }
     }
 
     private void asegurarExiste(int id) {

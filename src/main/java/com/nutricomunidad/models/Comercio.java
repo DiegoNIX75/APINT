@@ -13,5 +13,6 @@ public record Comercio(
         String coloniaComercio,
         String codigoPostalComercio,
         String municipioComercio,
-        String estadoComercio) {
+        String estadoComercio,
+        Integer idUsuario) {
 }

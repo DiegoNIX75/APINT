@@ -33,6 +33,10 @@ public class SolicitudService {
                 .igual("id_organizacion", idOrganizacion));
     }
 
+    public java.util.Optional<Solicitud> buscar(int id) {
+        return solicitudes.buscarPorId(id);
+    }
+
     public Solicitud obtener(int id) {
         return solicitudes.buscarPorId(id).orElseThrow(() -> Errores.noEncontrado("Solicitud", id));
     }

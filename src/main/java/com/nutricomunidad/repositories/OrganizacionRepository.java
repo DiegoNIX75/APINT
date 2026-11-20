@@ -4,6 +4,7 @@ import static com.nutricomunidad.dto.Textos.limpiar;
 
 import com.nutricomunidad.dto.OrganizacionRequest;
 import com.nutricomunidad.models.Organizacion;
+import java.util.Optional;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -24,17 +25,22 @@ public class OrganizacionRepository extends BaseRepository<Organizacion> {
                 rs.getString("colonia_organizacion"),
                 rs.getString("codigo_postal_organizacion"),
                 rs.getString("municipio_organizacion"),
-                rs.getString("estado_organizacion")));
+                rs.getString("estado_organizacion"),
+                entero(rs, "id_usuario")));
     }
 
-    public int crear(OrganizacionRequest r) {
+    public int crear(OrganizacionRequest r, Integer idUsuario) {
         return insertar("""
                 INSERT INTO organizaciones (nombre_organizacion, tipo_organizacion, responsable_organizacion,
                     telefono_organizacion, correo_organizacion, calle_organizacion, numero_exterior_organizacion,
                     numero_interior_organizacion, colonia_organizacion, codigo_postal_organizacion,
-                    municipio_organizacion, estado_organizacion)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id_organizacion
-                """, valores(r));
+                    municipio_organizacion, estado_organizacion, id_usuario)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id_organizacion
+                """, conValor(valores(r), idUsuario));
+    }
+
+    public Optional<Organizacion> buscarPorUsuario(int idUsuario) {
+        return listar(new Filtro().igual("id_usuario", idUsuario)).stream().findFirst();
     }
 
     public void actualizar(int id, OrganizacionRequest r) {

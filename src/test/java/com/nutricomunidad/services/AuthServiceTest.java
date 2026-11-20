@@ -17,6 +17,9 @@ import com.nutricomunidad.dto.LoginResponse;
 import com.nutricomunidad.dto.RegistroRequest;
 import com.nutricomunidad.models.Rol;
 import com.nutricomunidad.models.Usuario;
+import com.nutricomunidad.repositories.BeneficiarioRepository;
+import com.nutricomunidad.repositories.ComercioRepository;
+import com.nutricomunidad.repositories.OrganizacionRepository;
 import com.nutricomunidad.repositories.RolRepository;
 import com.nutricomunidad.repositories.UsuarioRepository;
 import com.nutricomunidad.security.JwtService;
@@ -45,7 +48,8 @@ class AuthServiceTest {
         usuarios = mock(UsuarioRepository.class);
         roles = mock(RolRepository.class);
         jwt = mock(JwtService.class);
-        service = new AuthService(usuarios, roles, jwt, encoder);
+        service = new AuthService(usuarios, roles, jwt, encoder, mock(BeneficiarioRepository.class),
+                mock(ComercioRepository.class), mock(OrganizacionRepository.class));
     }
 
     private static RegistroRequest registro(String rol) {
